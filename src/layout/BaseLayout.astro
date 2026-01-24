@@ -24,15 +24,15 @@ const defaultSchema: WithContext<Thing> = {
   inLanguage: "en-US",
   "@id": Astro.url.href,
   url: Astro.url.href,
-  name: "DataNova",
+  name: "SampleStack",
   description:
-    "Unlock powerful data insights with DataNova's advanced analytics suite for Excel. Visualize, analyze, and make data-driven decisions in minutes with seamless Excel integration, AI-powered analysis, and predictive forecasting models.",
+    "Discover, organize, and create with thousands of high-quality audio samples. Browse loops, one-shots, and sound effects for your music production.",
   isPartOf: {
     "@type": "WebSite",
     url: `${Astro.site}`,
-    name: "DataNova",
+    name: "SampleStack",
     description:
-      "DataNova Analytics Inc. provides advanced analytics for Excel to help businesses unlock actionable insights quickly with no coding required.",
+      "SampleStack is your go-to platform for discovering and organizing high-quality audio samples for music production.",
   },
 };
 ---
@@ -42,27 +42,27 @@ const defaultSchema: WithContext<Thing> = {
     {/* SEO Meta Tags */}
     <SEO
       charset="utf-8"
-      title={seo?.title ?? "DataNova"}
+      title={seo?.title ?? "SampleStack"}
       description={seo?.description ??
-        "Unlock powerful data insights with DataNova's advanced analytics suite for Excel. Visualize, analyze, and make data-driven decisions in minutes with seamless Excel integration, AI-powered analysis, and predictive forecasting models."}
+        "Discover, organize, and create with thousands of high-quality audio samples. Browse loops, one-shots, and sound effects for your music production."}
       openGraph={{
         basic: {
-          title: "DataNova - Unlock Insights from Your Excel Data",
+          title: "SampleStack - Your Ultimate Audio Sample Library",
           type: "website",
           image: socialImage,
         },
         optional: {
           description:
-            "Transform your Excel workspace with DataNova's powerful analytics suite. Get insights, predictive models, and visualizations in minutes with no coding required.",
+            "Discover, organize, and create with thousands of high-quality audio samples. Build your perfect sound palette for music production.",
         },
       }}
       twitter={{
         card: "summary_large_image",
-        title: "DataNova - Unlock Insights from Your Excel Data",
+        title: "SampleStack - Your Ultimate Audio Sample Library",
         description:
-          "Transform your Excel workspace with DataNova's powerful analytics suite. Visualize and analyze data quickly with no coding required.",
+          "Discover and organize high-quality audio samples for your music production. Loops, one-shots, and sound effects.",
         image: socialImage,
-        imageAlt: "DataNova Logo.",
+        imageAlt: "SampleStack Logo.",
       }}
       extend={{
         link: [
