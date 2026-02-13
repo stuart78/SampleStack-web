@@ -117,8 +117,21 @@ const defaultSchema: WithContext<Thing> = {
       ].forEach((link) => link.remove()),
     );
   </script>
+
+  {/* Google Tag Manager */}
+  <script is:inline>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TL449CKK');
+  </script>
   </head>
   <body class="bg-off-white selection:bg-orange-300 selection:text-slate-700">
+    {/* Google Tag Manager (noscript) */}
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TL449CKK"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
     {/* Gradient blobs behind navbar area */}
     <div class="pointer-events-none absolute inset-x-0 top-0 h-[500px] overflow-hidden" aria-hidden="true">
       <div class="header-blob header-blob-1"></div>
