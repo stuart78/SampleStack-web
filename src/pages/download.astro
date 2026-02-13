@@ -1,0 +1,62 @@
+---
+export const prerender = true;
+import BaseLayout from "@layout/BaseLayout.astro";
+import Button from "@ui/Button.astro";
+
+const seo = {
+  title: "Download - SampleStack",
+  description:
+    "Download SampleStack for macOS. Sample management for Eurorack and hardware samplers.",
+};
+
+const downloadUrl = "https://github.com/stuart78/SampleManager/releases";
+---
+
+<BaseLayout seo={seo}>
+  <section class="mx-auto max-w-sm px-4 pb-12 pt-48 sm:max-w-xl sm:px-6 md:max-w-4xl lg:max-w-5xl lg:px-8 xl:max-w-6xl 2xl:max-w-[81rem]">
+    <div class="mx-auto max-w-3xl text-center">
+      <h1
+        class="text-balance text-4xl text-slate-800 sm:text-5xl md:text-6xl lg:text-7xl"
+      >
+        Download SampleStack
+      </h1>
+      <p class="mt-4 text-lg text-slate-600">
+        Start organizing your sample library today.
+      </p>
+
+      <div class="mt-10">
+        <Button href={downloadUrl} variant="primary" target="_blank">
+          Download for macOS
+        </Button>
+      </div>
+
+      <p class="mt-4 text-sm text-slate-400">
+        Requires macOS 15 (Sequoia) or later
+      </p>
+    </div>
+  </section>
+
+  {/* Details */}
+  <section class="mx-auto max-w-sm px-4 py-10 sm:max-w-xl sm:px-6 md:max-w-4xl lg:max-w-5xl lg:px-8 lg:py-14 xl:max-w-6xl 2xl:max-w-[81rem]">
+    <div class="mx-auto grid max-w-3xl gap-8 sm:grid-cols-3">
+      <div>
+        <h3 class="font-semibold text-slate-800">Native macOS app</h3>
+        <p class="mt-2 text-sm text-slate-600">
+          Built with Swift for fast performance. No Electron, no web views. Works offline.
+        </p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-slate-800">Free during beta</h3>
+        <p class="mt-2 text-sm text-slate-600">
+          SampleStack is free to use during the beta period. Download and try it today.
+        </p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-slate-800">Beta</h3>
+        <p class="mt-2 text-sm text-slate-600">
+          SampleStack is in active development. Report bugs and request features on GitHub Issues.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

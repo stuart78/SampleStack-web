@@ -1,0 +1,143 @@
+---
+export const prerender = true;
+import BaseLayout from "@layout/BaseLayout.astro";
+import Icon from "@ui/icons/Icon.astro";
+
+const seo = {
+  title: "Help - SampleStack",
+  description:
+    "Get help with SampleStack. Browse the user manual, quickstart guide, and frequently asked questions.",
+};
+
+const faq = [
+  {
+    question: "What modules does SampleStack support?",
+    answer:
+      "SampleStack supports Morphagene, Squid Salmple, Multigrain, Digitakt, Octatrack, Blackbox, and more. Each module has its own validation profile with the correct sample rate, bit depth, and file format requirements.",
+  },
+  {
+    question: "Does SampleStack modify my original files?",
+    answer:
+      "No. All edits are non-destructive. SampleStack stages changes and only writes new files when you explicitly save. Your original samples are never altered.",
+  },
+  {
+    question: "What file formats are supported?",
+    answer:
+      "SampleStack works with WAV, AIFF, and other common audio formats. It can convert between sample rates, bit depths, and channel configurations to match any module's requirements.",
+  },
+  {
+    question: "Is SampleStack free?",
+    answer:
+      "SampleStack is free during the beta period. You can download it from GitHub.",
+  },
+  {
+    question: "What operating systems are supported?",
+    answer:
+      "SampleStack is a native macOS application. It requires macOS 15 (Sequoia) or later.",
+  },
+];
+---
+
+<BaseLayout seo={seo}>
+  <section class="mx-auto max-w-sm px-4 pb-12 pt-48 sm:max-w-xl sm:px-6 md:max-w-4xl lg:max-w-5xl lg:px-8 xl:max-w-6xl 2xl:max-w-[81rem]">
+    <div class="max-w-3xl">
+      <h1
+        class="text-balance text-4xl text-slate-800 sm:text-5xl md:text-6xl lg:text-7xl"
+      >
+        Help
+      </h1>
+      <p class="mt-4 text-lg text-slate-600">
+        Everything you need to get started with SampleStack.
+      </p>
+    </div>
+  </section>
+
+  {/* Guides Section */}
+  <section class="mx-auto max-w-sm px-4 py-10 sm:max-w-xl sm:px-6 md:max-w-4xl lg:max-w-5xl lg:px-8 xl:max-w-6xl 2xl:max-w-[81rem]">
+    <div class="grid max-w-3xl gap-6 sm:grid-cols-2">
+      <a
+        href="/help/quickstart"
+        class="group rounded-xl border border-slate-200 p-6 transition hover:border-orange-300 hover:shadow-sm"
+      >
+        <h3 class="text-lg font-semibold text-slate-800 group-hover:text-orange-600">
+          Quickstart Guide
+        </h3>
+        <p class="mt-2 text-sm text-slate-600">
+          Get up and running in minutes. Import your first library, validate samples, and export to your module.
+        </p>
+      </a>
+
+      <a
+        href="/help/manual"
+        class="group rounded-xl border border-slate-200 p-6 transition hover:border-orange-300 hover:shadow-sm"
+      >
+        <h3 class="text-lg font-semibold text-slate-800 group-hover:text-orange-600">
+          User Manual
+        </h3>
+        <p class="mt-2 text-sm text-slate-600">
+          Full documentation covering every feature, from library management to waveform editing and batch conversion.
+        </p>
+      </a>
+
+      <a
+        href="/modules"
+        class="group rounded-xl border border-slate-200 p-6 transition hover:border-orange-300 hover:shadow-sm"
+      >
+        <h3 class="text-lg font-semibold text-slate-800 group-hover:text-orange-600">
+          Supported Modules
+        </h3>
+        <p class="mt-2 text-sm text-slate-600">
+          Detailed hardware specs for every sampler SampleStack supports, from Morphagene to Digitakt.
+        </p>
+      </a>
+    </div>
+  </section>
+
+  {/* FAQ Section */}
+  <section class="mx-auto max-w-sm px-4 py-10 sm:max-w-xl sm:px-6 md:max-w-4xl lg:max-w-5xl lg:px-8 lg:py-14 xl:max-w-6xl 2xl:max-w-[81rem]">
+    <div class="max-w-3xl">
+      <h2 class="mb-8 text-2xl font-semibold text-slate-800">
+        Frequently Asked Questions
+      </h2>
+
+      <div class="divide-y divide-slate-200">
+        {
+          faq.map((item) => (
+            <div class="py-6">
+              <h3 class="text-base font-semibold text-slate-800">
+                {item.question}
+              </h3>
+              <p class="mt-2 text-sm text-slate-600">{item.answer}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* Contact Section */}
+  <section class="mx-auto max-w-sm px-4 py-10 sm:max-w-xl sm:px-6 md:max-w-4xl lg:max-w-5xl lg:px-8 lg:py-14 xl:max-w-6xl 2xl:max-w-[81rem]">
+    <div class="max-w-3xl rounded-xl bg-slate-50 p-8">
+      <h2 class="text-lg font-semibold text-slate-800">Still need help?</h2>
+      <p class="mt-2 text-sm text-slate-600">
+        Reach out by email or open an issue on GitHub.
+      </p>
+      <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:gap-6">
+        <a
+          href="mailto:hello@samplestack.app"
+          class="text-sm font-medium text-orange-600 hover:text-orange-500"
+        >
+          hello@samplestack.app
+        </a>
+        <a
+          href="https://github.com/stuart78/SampleManager/issues"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm font-medium text-orange-600 hover:text-orange-500"
+        >
+          GitHub Issues
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

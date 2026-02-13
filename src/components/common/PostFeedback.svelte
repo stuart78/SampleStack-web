@@ -85,9 +85,9 @@
     type="button"
     on:click={() => handleFeedback("helpful")}
     disabled={feedbackGiven}
-    class="group inline-flex items-center gap-x-2 rounded-lg border border-slate-400 px-3 py-2 text-sm font-medium text-slate-700 hover:border-teal-500 hover:bg-teal-500"
-    class:bg-teal-500={userChoice === "helpful"}
-    class:border-teal-500={userChoice === "helpful"}
+    class="group inline-flex items-center gap-x-2 rounded-lg border border-slate-400 px-3 py-2 text-sm font-medium text-slate-700 hover:border-orange-500 hover:bg-orange-500"
+    class:bg-orange-500={userChoice === "helpful"}
+    class:border-orange-500={userChoice === "helpful"}
   >
     <slot name="helpfulIcon" /> {firstChoice}</button
   >

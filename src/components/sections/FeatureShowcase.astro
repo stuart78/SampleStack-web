@@ -1,56 +1,44 @@
 ---
-import { Image } from "astro:assets";
-import image_1 from "@images/toolbar.webp";
-import image_2 from "@images/graph.webp";
-import image_3 from "@images/dashboard.webp";
-
 // Content for the section title and subtitle
-const title = `<span class="text-teal-700">Data</span><span class="font-normal text-slate-400">Nova</span>'s Powerful Analytics Suite`;
-const subTitle = `Discover how DataNova transforms your Excel workspace into a comprehensive analytics powerhouse, making data analysis accessible and actionable.`;
+const title = `SampleStack's Workflow`;
+const subTitle = `Built for Eurorack and hardware samplers. SampleStack knows the exact requirements for each module and handles the tedious format conversion so you can focus on making music.`;
 
 // Features list for displaying the key highlights
 
 const features = [
   {
-    title: "Native Excel integration", // Feature title
+    title: "Multi-module support",
     description:
-      "Work directly in Excel with our native toolbar and custom functions", // Feature description
-    image: image_1, // Associated image
+      "Auto-detects your library structure for Morphagene, Squid Salmple, Multigrain, Digitakt, Octatrack, Blackbox, and more. Each module has different requirements. SampleStack knows them all.",
     class:
-      "content-center border-b border-dashed border-slate-400 py-5 sm:col-span-2 sm:p-5", // Custom CSS classes for layout and styling
-    alignment: "mx-auto mt-10 rounded-xl shadow-lg sm:w-[75%]", // Alignment and styling for the image
+      "content-center border-b border-dashed border-slate-400 py-5 sm:col-span-2 sm:p-5",
   },
   {
-    title: "Comprehensive analytics suite",
-    description: `Choose from <span class="font-bold">30+</span> statistical models and <span class="font-bold">25+</span> visualization templates to unlock insights from any dataset.`,
-    image: image_2,
+    title: "Instant validation",
+    description: `See at a glance which samples are <span class="font-bold">ready</span>, which <span class="font-bold">need conversion</span>, and which have <span class="font-bold">issues</span>. Color-coded badges make it obvious what needs attention.`,
     class: "content-center py-5 sm:row-start-2 sm:p-5 sm:py-10",
-    alignment:
-      "ml-auto mr-auto mt-10 w-[65%] rounded-xl shadow-lg sm:ml-0 sm:w-[45%]",
   },
   {
-    title: "Smart analysis tools",
+    title: "Built-in audio editing",
     description:
-      "Let AI do the heavy lifting. Automatically detect patterns, spot anomalies, and get accurate forecasts from your historical data.",
-    image: image_3,
+      "Preview samples with a zoomable waveform. Add splice markers, detect transients, apply fades, split and crop, all non-destructively. Save when you're ready, or discard and start over.",
     class:
       "content-center border-t border-dashed border-slate-400 py-5 sm:row-span-2 sm:row-start-2 sm:border-l sm:border-t-0 sm:p-5 sm:text-right",
-    alignment: "ml-auto mr-auto mt-10 w-[80%] rounded-xl shadow-lg sm:mr-0",
   },
   {
     title: "And more...",
     class: "content-center border-t border-dashed border-slate-400 py-5 sm:p-5",
     moreFeatures: [
-      "Works seamlessly with all modern Excel versions (2013+) on both Windows and Mac",
-      "Build interactive dashboards that update in real-time as your data changes",
-      "Access your insights anywhere through cloud integration with Google Sheets and OneDrive",
-      "Create custom reports that tell your data's story exactly how you want",
+      "Batch convert sample rate, bit depth, and channels to match any module's requirements",
+      "Organize with tags, ratings, and searchable metadata",
+      "Drag samples directly from your master library to module collections",
+      "Native macOS app. Fast, private, works offline",
     ],
   },
 ];
 ---
 
-<div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 md:py-14 lg:px-8 lg:py-20">
+<div class="mx-auto max-w-sm px-4 py-10 sm:max-w-xl sm:px-6 md:max-w-4xl md:py-14 lg:max-w-5xl lg:px-8 lg:py-20 xl:max-w-6xl 2xl:max-w-[81rem]">
   {/* Section container for the title and subtitle */}
   <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
     <h2
@@ -64,7 +52,7 @@ const features = [
   </div>
 
   <div
-    class="mx-auto grid max-w-[85rem] px-4 pb-10 sm:grid-cols-2 sm:grid-rows-3 sm:px-6 lg:px-8 lg:pb-14"
+    class="mx-auto grid px-4 pb-10 sm:grid-cols-2 sm:grid-rows-3 sm:px-6 lg:px-8 lg:pb-14"
   >
     {
       features.map((feature) => (
@@ -75,16 +63,8 @@ const features = [
             <Fragment set:html={feature.description || ""} />
           </p>
 
-          {feature.image && (
-            <Image
-              class={`${feature.alignment || ""}`}
-              src={feature.image}
-              alt=""
-            />
-          )}
-
           {feature.moreFeatures && (
-            <ul class="ml-4 mt-4 w-4/5 list-inside list-disc space-y-2 text-base/6 text-slate-600 marker:text-teal-600">
+            <ul class="ml-4 mt-4 w-4/5 list-outside list-disc space-y-2 pl-5 text-base/6 text-slate-600 marker:text-purple-500">
               {feature.moreFeatures.map((item) => (
                 <li>{item}</li>
               ))}

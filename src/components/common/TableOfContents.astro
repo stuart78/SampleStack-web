@@ -1,0 +1,60 @@
+---
+interface TocItem {
+  id: string;
+  label: string;
+}
+
+interface Props {
+  items: TocItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav class="hidden xl:block">
+  <div class="sticky top-48">
+    <ul class="space-y-2 text-sm">
+      {items.map((item) => (
+        <li>
+          <a
+            href={`#${item.id}`}
+            class="toc-link block text-slate-400 transition-colors hover:text-slate-700"
+            data-target={item.id}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<script>
+  function initToc() {
+    const links = document.querySelectorAll<HTMLAnchorElement>('.toc-link');
+    if (!links.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            links.forEach((link) => {
+              const isActive = link.dataset.target === entry.target.id;
+              link.classList.toggle('text-slate-700', isActive);
+              link.classList.toggle('text-slate-400', !isActive);
+            });
+          }
+        }
+      },
+      { rootMargin: '-80px 0px -70% 0px' }
+    );
+
+    links.forEach((link) => {
+      const target = document.getElementById(link.dataset.target!);
+      if (target) observer.observe(target);
+    });
+  }
+
+  initToc();
+  document.addEventListener('astro:after-swap', initToc);
+</script>

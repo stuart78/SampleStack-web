@@ -1,0 +1,760 @@
+---
+export const prerender = true;
+import BaseLayout from "@layout/BaseLayout.astro";
+import TableOfContents from "@common/TableOfContents.astro";
+
+const seo = {
+  title: "User Manual - SampleStack",
+  description: "Complete SampleStack user manual. Learn about library management, sample validation, waveform editing, cue points, and hardware export.",
+};
+
+const toc = [
+  { id: "introduction", label: "Introduction" },
+  { id: "getting-started", label: "Getting Started" },
+  { id: "the-interface", label: "The Interface" },
+  { id: "managing-libraries", label: "Managing Libraries" },
+  { id: "working-with-samples", label: "Working with Samples" },
+  { id: "the-sample-player", label: "The Sample Player" },
+  { id: "cue-points", label: "Cue Points and Slicing" },
+  { id: "audio-editing", label: "Audio Editing" },
+  { id: "applying-fades", label: "Applying Fades" },
+  { id: "sample-metadata", label: "Sample Metadata" },
+  { id: "copying-converting", label: "Copying and Converting" },
+  { id: "keyboard-shortcuts", label: "Keyboard Shortcuts" },
+  { id: "troubleshooting", label: "Troubleshooting" },
+];
+---
+
+<BaseLayout seo={seo}>
+  <div class="mx-auto max-w-sm px-4 pb-20 pt-48 sm:max-w-xl sm:px-6 md:max-w-4xl lg:max-w-5xl lg:px-8 xl:max-w-6xl 2xl:max-w-[81rem]">
+    <div class="xl:grid xl:grid-cols-[200px_1fr] xl:gap-10">
+    <TableOfContents items={toc} />
+    <section>
+    <h1 class="text-balance text-4xl text-slate-800 sm:text-5xl">User Manual</h1>
+
+    <!-- Introduction -->
+    <h2 id="introduction" class="mt-16 text-2xl font-semibold text-slate-800">Introduction</h2>
+    <p class="mt-4 text-base/7 text-slate-600">
+      SampleStack is a macOS application for managing audio samples destined for hardware samplers. Whether you're using Eurorack modules like Morphagene and Multigrain, or standalone samplers like the Elektron Digitakt and Octatrack, SampleStack helps you:
+    </p>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Organize your sample collection with tags, ratings, and folders</li>
+      <li>Validate samples against hardware requirements before copying</li>
+      <li>Convert incompatible samples to the correct format automatically</li>
+      <li>Edit cue points and apply fades for seamless playback</li>
+      <li>Export with the correct folder structure for each device</li>
+    </ul>
+
+    <!-- Getting Started -->
+    <hr class="mt-16 border-slate-200" />
+    <h2 id="getting-started" class="mt-16 text-2xl font-semibold text-slate-800">Getting Started</h2>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">System Requirements</h3>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>macOS 15.0 (Sequoia) or later</li>
+      <li>Approximately 50MB disk space for the application</li>
+      <li>Additional space for your sample libraries</li>
+    </ul>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">First Launch</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      When you first launch SampleStack, the sidebar will be empty. Start by adding a sample library:
+    </p>
+    <ol class="mt-4 list-decimal pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Click File &rarr; Add Sample Library or press the <kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">+</kbd> button in the sidebar</li>
+      <li>Navigate to a folder containing your audio samples</li>
+      <li>Click Open</li>
+    </ol>
+    <p class="mt-4 text-base/7 text-slate-600">
+      The first library you add automatically becomes your Sample Library, indicated by a waveform icon. This serves as your central collection of all samples.
+    </p>
+
+    <!-- The Interface -->
+    <hr class="mt-16 border-slate-200" />
+    <h2 id="the-interface" class="mt-16 text-2xl font-semibold text-slate-800">The Interface</h2>
+    <p class="mt-4 text-base/7 text-slate-600">
+      SampleStack uses a three-column layout:
+    </p>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Sidebar (Left)</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      The sidebar is divided into two sections:
+    </p>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Samples Section (Top)</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Your sample libraries (central repositories)</li>
+      <li>Tags browser (filter by tag)</li>
+      <li>Ratings browser (filter by star rating)</li>
+    </ul>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Collections Section (Bottom)</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Hardware-specific libraries grouped by manufacturer</li>
+      <li>Each collection shows the manufacturer icon and custom color</li>
+    </ul>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Library Features</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Click the disclosure triangle to expand a library's folder tree</li>
+      <li>Click a folder to filter the main view to that folder's contents</li>
+      <li>Drag the divider between sections to resize</li>
+    </ul>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Content Area (Center)</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      Displays the contents of the selected library or folder:
+    </p>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Hierarchical view with expandable folders</li>
+      <li>Search bar to filter by filename</li>
+      <li>New Folder button to create folders</li>
+      <li>Validation badges showing sample compatibility</li>
+      <li>Floating player at the bottom for preview</li>
+    </ul>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Inspector (Right)</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      Shows details for the selected item:
+    </p>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Library info: Collection type, folder structure, validation status</li>
+      <li>Folder info: Sample counts, subfolder counts</li>
+      <li>Sample info: Audio properties, validation issues, metadata editor</li>
+    </ul>
+
+    <!-- Managing Libraries -->
+    <hr class="mt-16 border-slate-200" />
+    <h2 id="managing-libraries" class="mt-16 text-2xl font-semibold text-slate-800">Managing Libraries</h2>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Adding Libraries</h3>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Sample Library (Central Repository)</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>File &rarr; Add Sample Library</li>
+      <li>Contains all your source samples</li>
+      <li>Samples are analyzed lazily (on-demand) for fast loading</li>
+    </ul>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Hardware Collection</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>File &rarr; New Collection</li>
+      <li>Choose the hardware type</li>
+      <li>Configure folder count (projects, banks, stations)</li>
+      <li>Pick a location (SD card or local drive)</li>
+    </ul>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Library Context Menu</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      Right-click any library for options:
+    </p>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Set as Sample Library / Unset: Toggle sample library status</li>
+      <li>Set Collection Type: Change the hardware type</li>
+      <li>Set Color: Customize the sidebar icon color</li>
+      <li>Remove: Remove from SampleStack (doesn't delete files)</li>
+      <li>Reveal in Finder: Open the folder location</li>
+    </ul>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Folder Navigation</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      Libraries can be expanded in the sidebar to show their folder hierarchy:
+    </p>
+    <ol class="mt-4 list-decimal pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Click the triangle next to a library name</li>
+      <li>Click any folder to filter the content view</li>
+      <li>Click the library name to show all contents again</li>
+    </ol>
+
+    <!-- Working with Samples -->
+    <hr class="mt-16 border-slate-200" />
+    <h2 id="working-with-samples" class="mt-16 text-2xl font-semibold text-slate-800">Working with Samples</h2>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Browsing Samples</h3>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Arrow keys: Navigate up/down through samples</li>
+      <li>Right/Left arrows: Expand/collapse folders</li>
+      <li>Enter: Rename selected item</li>
+      <li>Spacebar: Play/pause selected sample</li>
+      <li>Double-click sample: Play from beginning</li>
+      <li>Double-click folder: Expand/collapse folder</li>
+    </ul>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Selecting Samples</h3>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Click: Select single sample</li>
+      <li><kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">Cmd</kbd>+Click: Add/remove from selection</li>
+      <li><kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">Shift</kbd>+Click: Select range</li>
+      <li><kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">Cmd</kbd>+<kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">A</kbd>: Select all visible samples</li>
+    </ul>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Sample Validation</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      Each sample shows colored badges indicating its status:
+    </p>
+    <table class="w-full mt-4 text-sm text-left">
+      <thead>
+        <tr class="border-b border-slate-200">
+          <th class="py-2 pr-4 font-medium text-slate-800">Badge</th>
+          <th class="py-2 pr-4 font-medium text-slate-800">Meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Green</td>
+          <td class="py-2 pr-4 text-slate-600">Compatible with hardware</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Orange</td>
+          <td class="py-2 pr-4 text-slate-600">Needs conversion (fixable)</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Red</td>
+          <td class="py-2 pr-4 text-slate-600">Has errors (wrong filename, unsupported format)</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Gray</td>
+          <td class="py-2 pr-4 text-slate-600">Not yet analyzed</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="mt-4 text-base/7 text-slate-600">
+      Click a sample to see detailed validation info in the inspector.
+    </p>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">File Operations</h3>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Rename</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Right-click &rarr; Rename, or press Enter</li>
+      <li>For modules with filename requirements (like Morphagene), validation updates automatically</li>
+    </ul>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Move</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Drag samples onto folders to move them</li>
+      <li>Drag folders onto other folders to reorganize</li>
+      <li>Undo with <kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">Cmd</kbd>+<kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">Z</kbd></li>
+    </ul>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Delete</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Right-click &rarr; Delete</li>
+      <li>Files move to Trash (use Finder's "Put Back" to recover)</li>
+    </ul>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Ignore</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Right-click &rarr; Ignore to hide from validation stats</li>
+      <li>Useful for metadata files, system files, etc.</li>
+      <li>Ignored samples appear dimmed with an eye-slash icon</li>
+    </ul>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Importing from Finder</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      Drag audio files from Finder into SampleStack:
+    </p>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Drop on the content area to import to the library root</li>
+      <li>Drop on a folder row to import to that folder</li>
+      <li>Drop on a sample row to import to that sample's folder</li>
+      <li>Supported formats: WAV, AIF, AIFF, MP3, M4A, FLAC, OGG, RAW</li>
+    </ul>
+
+    <!-- The Sample Player -->
+    <hr class="mt-16 border-slate-200" />
+    <h2 id="the-sample-player" class="mt-16 text-2xl font-semibold text-slate-800">The Sample Player</h2>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Compact Player</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      The floating player appears at the bottom when you select a sample:
+    </p>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Stop button: Stop playback, return to selection start (or clip start)</li>
+      <li>Play/Pause: Toggle playback</li>
+      <li>Mode selector: One Shot, Continuous, or Loop</li>
+      <li>Scrubber: Shows playback position, click to seek</li>
+      <li>Time display: Current position / total duration</li>
+      <li>Expand button: Open the expanded player</li>
+    </ul>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Playback Modes</h3>
+    <table class="w-full mt-4 text-sm text-left">
+      <thead>
+        <tr class="border-b border-slate-200">
+          <th class="py-2 pr-4 font-medium text-slate-800">Mode</th>
+          <th class="py-2 pr-4 font-medium text-slate-800">Behavior</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">One Shot</td>
+          <td class="py-2 pr-4 text-slate-600">Play once, then stop</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Continuous</td>
+          <td class="py-2 pr-4 text-slate-600">Play to end of file</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Loop</td>
+          <td class="py-2 pr-4 text-slate-600">Repeat selection or full sample</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="mt-4 text-base/7 text-slate-600">
+      You can set your preferred default playback mode in Settings &rarr; General &rarr; Playback.
+    </p>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Expanded Player</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      Click the expand button for the full waveform view:
+    </p>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Waveform Display</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Stereo waveforms shown separately (cyan = left, orange = right)</li>
+      <li>Yellow markers indicate cue points</li>
+      <li>Selection region shown as highlighted area</li>
+    </ul>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Zoom Controls</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Slider: Drag to zoom in/out (uses exponential scaling for consistent feel)</li>
+      <li>+/- buttons: Zoom in/out</li>
+      <li>Keyboard: Press <kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">=</kbd> to zoom in, <kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">-</kbd> to zoom out</li>
+      <li>Pinch gesture: Two-finger pinch on trackpad (zooms toward cursor)</li>
+      <li><kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">Cmd</kbd>+Scroll: Scroll wheel with Command key (zooms toward cursor)</li>
+    </ul>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Panning</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Two-finger scroll: Pan horizontally when zoomed</li>
+      <li><kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">Option</kbd>+drag: Pan with mouse when zoomed</li>
+      <li>Minimap: Click or drag on the overview bar above the waveform</li>
+    </ul>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Selection</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Drag: Click and drag to select a region</li>
+      <li>Click slice: Click a slice in the list to select that region</li>
+    </ul>
+
+    <!-- Cue Points and Slicing -->
+    <hr class="mt-16 border-slate-200" />
+    <h2 id="cue-points" class="mt-16 text-2xl font-semibold text-slate-800">Cue Points and Slicing</h2>
+    <p class="mt-4 text-base/7 text-slate-600">
+      Cue points (also called splice markers) divide a sample into slices. They're used by hardware like Morphagene and Erica Sample Drum.
+    </p>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Adding Cue Points</h3>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Manual</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li><kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">Option</kbd>+click on the waveform to add a cue point</li>
+      <li>Scissors button: Add cue point at the playhead position</li>
+    </ul>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Automatic (Transient Detection)</h4>
+    <ol class="mt-4 list-decimal pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Click the menu button (waveform icon with plus) next to the scissors</li>
+      <li>Choose sensitivity: Low (strong transients only), Medium (moderate transients), High (subtle changes)</li>
+      <li>Cue points appear at each detected transient</li>
+    </ol>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Editing Cue Points</h3>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Move</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Drag cue markers on the waveform</li>
+      <li>Marker turns orange while dragging</li>
+    </ul>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Rename</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Double-click a slice name in the slice list</li>
+      <li>Type a new name, press Enter to save (Escape to cancel)</li>
+    </ul>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Delete</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Right-click a marker &rarr; Delete</li>
+      <li>Or click the X button next to the slice in the list</li>
+    </ul>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Saving Changes</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      Cue point changes are non-destructive until saved:
+    </p>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>"Unsaved" badge appears when you have pending changes</li>
+      <li>Save button: Write changes to the WAV file</li>
+      <li>Discard button: Revert to original cue points</li>
+      <li>Undo/Redo: <kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">Cmd</kbd>+<kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">Z</kbd> and <kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">Cmd</kbd>+<kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">Shift</kbd>+<kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">Z</kbd> work for cue point operations</li>
+    </ul>
+
+    <!-- Audio Editing -->
+    <hr class="mt-16 border-slate-200" />
+    <h2 id="audio-editing" class="mt-16 text-2xl font-semibold text-slate-800">Audio Editing</h2>
+    <p class="mt-4 text-base/7 text-slate-600">
+      SampleStack includes comprehensive audio editing tools accessible via the Edit menu (scissors icon with "Edit" label) in the expanded player. All edits are non-destructive until you click Save.
+    </p>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">The Edit Menu</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      The Edit menu is always visible in the expanded player controls. You can also right-click on the waveform to access the same options.
+    </p>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Splice Operations (add cue points)</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Splice at Playhead: Add a cue point at the current playhead position</li>
+      <li>Splice Selection: Add cue points at both ends of the selected region</li>
+      <li>Detect Transients: Automatically detect transients and add cue points (Low/Medium/High sensitivity)</li>
+    </ul>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Destructive Edits (modify audio)</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Split at Playhead: Split the file into two separate files at the playhead position. The second file gets a "-2" suffix.</li>
+      <li>Crop to Selection: Delete all audio outside the selected region</li>
+      <li>Cut Selection: Remove the selected region, keeping the audio before and after</li>
+    </ul>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">New Sample Operations</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>New Sample via Cut: Extract the selection to a new file AND remove it from the original</li>
+      <li>New Sample via Copy: Extract the selection to a new file, keeping the original intact</li>
+    </ul>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Non-Destructive Workflow</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      All destructive audio edits work on a temporary copy:
+    </p>
+    <ol class="mt-4 list-decimal pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Make your edit (crop, cut, split, etc.)</li>
+      <li>The waveform updates immediately to show the result</li>
+      <li>"Audio modified" badge appears with Save/Discard buttons</li>
+      <li>Playback uses the edited version so you can preview</li>
+      <li>Apply additional edits if needed (they stack)</li>
+      <li>Click Save to write changes to the original file</li>
+      <li>Or click Discard to revert to the original</li>
+    </ol>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Split at Playhead</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      The Split operation divides a file into two:
+    </p>
+    <ol class="mt-4 list-decimal pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Click on the waveform to place the playhead where you want to split</li>
+      <li>Open Edit menu &rarr; Split at Playhead</li>
+      <li>Preview the first part (the waveform shows only the first half)</li>
+      <li>Click Save to commit: Original file is replaced with the first part. Second part is saved with "-2" suffix.</li>
+      <li>The folder refreshes to show both files</li>
+    </ol>
+
+    <!-- Applying Fades -->
+    <hr class="mt-16 border-slate-200" />
+    <h2 id="applying-fades" class="mt-16 text-2xl font-semibold text-slate-800">Applying Fades</h2>
+    <p class="mt-4 text-base/7 text-slate-600">
+      Fades help eliminate clicks at the start or end of samples (the "through-zero" issue).
+    </p>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">The Fade Menu</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      The Fade menu (waveform icon with "Fade" label) is always visible in the expanded player controls, next to the Edit menu. It's disabled when no region is selected.
+    </p>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Region-Based Fades</h3>
+    <ol class="mt-4 list-decimal pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Select a region by dragging on the waveform</li>
+      <li>Click the Fade menu (or right-click on the waveform)</li>
+      <li>Choose: Fade In (Linear), Fade In (Logarithmic), Fade Out (Linear), Fade Out (Logarithmic)</li>
+    </ol>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Through-Zero Detection</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      The inspector shows a warning if a sample doesn't start or end at zero amplitude:
+    </p>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Yellow triangle icon: Through-zero issue detected</li>
+      <li>Hint: Use the expanded player to apply fades</li>
+    </ul>
+
+    <!-- Sample Metadata -->
+    <hr class="mt-16 border-slate-200" />
+    <h2 id="sample-metadata" class="mt-16 text-2xl font-semibold text-slate-800">Sample Metadata</h2>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Adding Metadata</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      Select a sample and use the inspector panel:
+    </p>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Tags Section</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Click "Add tag" and type a tag name</li>
+      <li>Press Enter to add, or click a suggestion</li>
+      <li>Click the X on a tag to remove it</li>
+    </ul>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Details Section</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Rating: Click stars (1-5) to rate</li>
+      <li>BPM: Enter beats per minute</li>
+      <li>Key: Enter musical key (e.g., "Am", "C#")</li>
+      <li>Source: Note where the sample came from</li>
+    </ul>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Notes Section</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Free-form text field for any notes</li>
+    </ul>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Multi-Sample Editing</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      When multiple samples are selected:
+    </p>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Common tags (in all samples) can be removed from all</li>
+      <li>Partial tags (in some samples) can be added to all or removed from all</li>
+      <li>Use "Add tag" to add a new tag to all selected samples</li>
+    </ul>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Browsing by Metadata</h3>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Tags Browser</h4>
+    <ol class="mt-4 list-decimal pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Expand "Tags" in the sidebar</li>
+      <li>Click any tag to filter to samples with that tag</li>
+      <li>Click a library or folder to clear the filter</li>
+    </ol>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Ratings Browser</h4>
+    <ol class="mt-4 list-decimal pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Expand "Ratings" in the sidebar</li>
+      <li>Click a star rating to filter (5 to 1)</li>
+      <li>Click a library or folder to clear the filter</li>
+    </ol>
+
+    <!-- Copying and Converting Samples -->
+    <hr class="mt-16 border-slate-200" />
+    <h2 id="copying-converting" class="mt-16 text-2xl font-semibold text-slate-800">Copying and Converting Samples</h2>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Copy to Library</h3>
+    <ol class="mt-4 list-decimal pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Select samples in your sample library</li>
+      <li>Click the Copy to Library toolbar button (or drag to a collection)</li>
+      <li>Choose the destination library</li>
+      <li>Choose the target folder within that library</li>
+      <li>Configure options: Convert incompatible samples, Truncate long samples, Overwrite existing</li>
+      <li>Click Copy</li>
+    </ol>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Conversion Preview</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      The sheet shows which samples will be:
+    </p>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Copied as-is: Already compatible</li>
+      <li>Converted: Format will be adjusted</li>
+      <li>Skipped: Cannot be converted (shows reason)</li>
+    </ul>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">What Gets Converted</h3>
+    <table class="w-full mt-4 text-sm text-left">
+      <thead>
+        <tr class="border-b border-slate-200">
+          <th class="py-2 pr-4 font-medium text-slate-800">Property</th>
+          <th class="py-2 pr-4 font-medium text-slate-800">Conversion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Sample Rate</td>
+          <td class="py-2 pr-4 text-slate-600">Resampled to target rate</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Bit Depth</td>
+          <td class="py-2 pr-4 text-slate-600">Converted (including to 32-bit float for Morphagene)</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Channels</td>
+          <td class="py-2 pr-4 text-slate-600">Mixed to mono or duplicated to stereo</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Duration</td>
+          <td class="py-2 pr-4 text-slate-600">Truncated if exceeding hardware limit</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Keyboard Shortcuts -->
+    <hr class="mt-16 border-slate-200" />
+    <h2 id="keyboard-shortcuts" class="mt-16 text-2xl font-semibold text-slate-800">Keyboard Shortcuts</h2>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Navigation</h3>
+    <table class="w-full mt-4 text-sm text-left">
+      <thead>
+        <tr class="border-b border-slate-200">
+          <th class="py-2 pr-4 font-medium text-slate-800">Action</th>
+          <th class="py-2 pr-4 font-medium text-slate-800">Shortcut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Navigate samples</td>
+          <td class="py-2 pr-4 text-slate-600">Up/Down arrows</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Expand folder</td>
+          <td class="py-2 pr-4 text-slate-600">Right arrow or Double-click</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Collapse folder</td>
+          <td class="py-2 pr-4 text-slate-600">Left arrow or Double-click</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Select all</td>
+          <td class="py-2 pr-4 text-slate-600"><kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">Cmd</kbd>+<kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">A</kbd></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Playback</h3>
+    <table class="w-full mt-4 text-sm text-left">
+      <thead>
+        <tr class="border-b border-slate-200">
+          <th class="py-2 pr-4 font-medium text-slate-800">Action</th>
+          <th class="py-2 pr-4 font-medium text-slate-800">Shortcut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Play/Pause</td>
+          <td class="py-2 pr-4 text-slate-600">Spacebar</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Play from beginning</td>
+          <td class="py-2 pr-4 text-slate-600">Double-click sample</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Waveform</h3>
+    <table class="w-full mt-4 text-sm text-left">
+      <thead>
+        <tr class="border-b border-slate-200">
+          <th class="py-2 pr-4 font-medium text-slate-800">Action</th>
+          <th class="py-2 pr-4 font-medium text-slate-800">Shortcut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Zoom in</td>
+          <td class="py-2 pr-4 text-slate-600"><kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">=</kbd></td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Zoom out</td>
+          <td class="py-2 pr-4 text-slate-600"><kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">-</kbd></td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Zoom (trackpad)</td>
+          <td class="py-2 pr-4 text-slate-600">Pinch gesture</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Zoom (mouse)</td>
+          <td class="py-2 pr-4 text-slate-600"><kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">Cmd</kbd>+Scroll</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Pan</td>
+          <td class="py-2 pr-4 text-slate-600">Two-finger scroll</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Add cue point</td>
+          <td class="py-2 pr-4 text-slate-600"><kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">Option</kbd>+click</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Editing</h3>
+    <table class="w-full mt-4 text-sm text-left">
+      <thead>
+        <tr class="border-b border-slate-200">
+          <th class="py-2 pr-4 font-medium text-slate-800">Action</th>
+          <th class="py-2 pr-4 font-medium text-slate-800">Shortcut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Undo</td>
+          <td class="py-2 pr-4 text-slate-600"><kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">Cmd</kbd>+<kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">Z</kbd></td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Redo</td>
+          <td class="py-2 pr-4 text-slate-600"><kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">Cmd</kbd>+<kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">Shift</kbd>+<kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">Z</kbd></td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Rename</td>
+          <td class="py-2 pr-4 text-slate-600">Return or Right-click &rarr; Rename</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Delete</td>
+          <td class="py-2 pr-4 text-slate-600"><kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">Cmd</kbd>+<kbd class="rounded bg-slate-100 px-1.5 py-0.5 text-sm font-mono text-slate-700">Backspace</kbd></td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Edit menu</td>
+          <td class="py-2 pr-4 text-slate-600">Right-click on waveform</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Troubleshooting -->
+    <hr class="mt-16 border-slate-200" />
+    <h2 id="troubleshooting" class="mt-16 text-2xl font-semibold text-slate-800">Troubleshooting</h2>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Samples Not Appearing</h3>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Check that the folder contains supported audio files</li>
+      <li>Try refreshing the library (right-click &rarr; Reveal in Finder, then re-add)</li>
+      <li>Large libraries may take time to scan initially</li>
+    </ul>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Validation Warnings</h3>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li><strong>"Wrong sample rate"</strong> &mdash; Sample will be resampled during copy/convert</li>
+      <li><strong>"Wrong bit depth"</strong> &mdash; Sample will be converted during copy/convert</li>
+      <li><strong>"Wrong channel count"</strong> &mdash; Stereo will be mixed to mono, or mono duplicated to stereo</li>
+      <li><strong>"Duration exceeds limit"</strong> &mdash; Enable "Truncate long samples" when copying</li>
+      <li><strong>"Invalid filename"</strong> &mdash; Some modules (like Morphagene) require specific filenames. Rename the file to match the required pattern.</li>
+    </ul>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Through-Zero Warnings</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      If the inspector shows a through-zero warning:
+    </p>
+    <ol class="mt-4 list-decimal pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Open the expanded player</li>
+      <li>Select the region at the start or end of the sample</li>
+      <li>Apply a fade (Edit menu or right-click)</li>
+      <li>Save the changes</li>
+    </ol>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Cue Points Not Saving</h3>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Make sure you click Save after editing cue points</li>
+      <li>The file must be writable (check permissions)</li>
+      <li>Cue points are stored in the WAV file itself</li>
+    </ul>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Performance Issues</h3>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Large sample libraries are scanned lazily to improve performance</li>
+      <li>Detailed analysis happens when you select a sample</li>
+      <li>Waveforms are cached to disk and persist across app restarts</li>
+      <li>Background precaching generates waveforms after library scanning</li>
+      <li>A progress indicator in the sidebar shows scanning/caching status</li>
+    </ul>
+
+    <!-- Back to Help link -->
+    <a href="/help" class="mt-12 inline-block text-sm font-medium text-orange-600 hover:text-orange-500">&larr; Back to Help</a>
+    </section>
+    </div>
+  </div>
+</BaseLayout>

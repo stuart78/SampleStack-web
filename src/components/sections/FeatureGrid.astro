@@ -3,42 +3,42 @@ import Icon from "@ui/icons/Icon.astro";
 
 // Content for the section title and subtitle
 const title =
-  'Why Choose <span class="text-teal-700">Data</span><span class="font-normal text-slate-400">Nova</span>?';
+  'Why Choose SampleStack?';
 const subTitle =
-  "Experience the perfect balance of power and simplicity in data analytics. From startups to enterprises, DataNova empowers teams to extract meaningful insights from their data while maintaining seamless integration with existing workflows. Transform the way you analyze, visualize, and act on your data.";
+  "Hardware samplers have strict requirements. Wrong sample rate, wrong bit depth, wrong filename, and your samples won't load. SampleStack eliminates the guesswork with automatic validation and conversion for every major module.";
 
 const features = [
   {
     borderClasses: "md:border-l md:border-r",
-    gradientClasses: "bg-linear-to-l/oklch from-teal-200 to-transparent",
+    gradientClasses: "bg-linear-to-l/oklch from-orange-200 to-transparent",
     icon: "cursorRays",
-    heading: "Built for Everyone",
+    heading: "Module-Aware Validation",
     description:
-      "Whether you're a business analyst or data scientist, DataNova's intuitive interface makes advanced analytics accessible. Start with simple visualizations and progress to complex predictive models at your own pace.",
+      "Each sampler has different requirements. Morphagene needs 32-bit float stereo. Squid Salmple needs 16-bit mono at 44.1kHz. SampleStack knows the specs and validates accordingly.",
   },
   {
     borderClasses: "border-b border-t md:border-b-0",
     gridClasses: "md:col-start-2 md:col-end-3",
-    gradientClasses: "bg-linear-to-t/oklch from-teal-200 to-transparent",
+    gradientClasses: "bg-linear-to-t/oklch from-orange-200 to-transparent",
     icon: "cog",
-    heading: "Enterprise-Grade Analytics",
+    heading: "Non-Destructive Editing",
     description:
-      "Harness the full power of advanced analytics with our comprehensive toolset. From automated pattern recognition to custom modeling, DataNova scales with your analytical needs while maintaining exceptional performance.",
+      "Preview edits before committing. Add cue points, apply fades, split samples. All changes are staged until you save. Discard anytime to revert to the original.",
   },
   {
     borderClasses: "md:border-l md:border-r md:border-t",
     gridClasses: "md:col-end-4",
-    gradientClasses: "bg-linear-to-tl/oklch from-teal-200 to-transparent",
+    gradientClasses: "bg-linear-to-tl/oklch from-orange-200 to-transparent",
     icon: "puzzle",
-    heading: "Seamless Integration",
+    heading: "Works With Your Workflow",
     description:
-      "Keep your existing Excel workflow while adding powerful analytics capabilities. DataNova works where you do, transforming your familiar spreadsheets into a sophisticated business intelligence platform.",
+      "Keep your master sample library organized however you like. Drag samples to module collections when you need them. SampleStack handles the conversion automatically.",
   },
 ];
 ---
 
 <section
-  class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 md:py-14 lg:px-8 lg:py-20"
+  class="mx-auto max-w-sm px-4 py-10 sm:max-w-xl sm:px-6 md:max-w-4xl md:py-14 lg:max-w-5xl lg:px-8 lg:py-20 xl:max-w-6xl 2xl:max-w-[81rem]"
 >
   <div
     class="grid grid-flow-row-dense grid-cols-1 md:grid-cols-3 md:grid-rows-2"

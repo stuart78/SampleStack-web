@@ -4,19 +4,19 @@ import FeatureCard from "@common/FeatureCard.astro";
 import Button from "@ui/Button.astro";
 
 // Content for the section title and subtitle
-const title = "Turn Historical Data into Tomorrow's Decisions";
+const title = "From Sample Library to SD Card in Minutes";
 const subTitle =
-  "Leverage advanced statistics and ML to uncover hidden patterns in your data. Make confident decisions backed by proven forecasting models. Our predictive engine analyzes thousands of data points to help you anticipate market changes and stay ahead of the competition.";
+  "Stop manually checking sample rates and renaming files. SampleStack validates your entire library against your module's requirements, converts what needs converting, and exports with the correct folder structure. Spend less time managing files and more time making music.";
 
 // Call-to-action configuration for the tertiary button
-const tertiaryCTA = { text: "Learn More", href: "#" };
+const tertiaryCTA = { text: "See How It Works", href: "#demo" };
 ---
 
 <section
-  class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 md:py-14 lg:px-8 lg:py-20"
+  class="mx-auto max-w-sm px-4 py-10 sm:max-w-xl sm:px-6 md:max-w-4xl md:py-14 lg:max-w-5xl lg:px-8 lg:py-20 xl:max-w-6xl 2xl:max-w-[81rem]"
 >
   <div
-    class="relative isolate overflow-hidden rounded-3xl bg-teal-400 px-6 pt-16 shadow-xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0"
+    class="relative isolate overflow-hidden rounded-3xl bg-gradient-to-br from-orange-300 to-purple-300 px-6 pt-16 shadow-xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0"
   >
     {/* Background Circle SVG */}
     <svg
@@ -32,8 +32,8 @@ const tertiaryCTA = { text: "Learn More", href: "#" };
         fill-opacity="0.7"></circle>
       <defs>
         <radialGradient id="gradient_2">
-          <stop offset="0" stop-color="#087F7F"></stop>
-          <stop offset="1" stop-color="#087F7F"></stop>
+          <stop offset="0" stop-color="#9333ea"></stop>
+          <stop offset="1" stop-color="#f97316"></stop>
         </radialGradient>
       </defs>
     </svg>
@@ -69,7 +69,7 @@ const tertiaryCTA = { text: "Learn More", href: "#" };
 
       <FeatureCard
         icon="dataBase"
-        description="Clean, organize, and prepare raw data for analysis."
+        description="Import your sample library. Any format, any organization."
         styleClass=""
       />
 
@@ -89,7 +89,7 @@ const tertiaryCTA = { text: "Learn More", href: "#" };
         <path
           class="beam-line"
           d="M1 0.5V50C1 63.8071 12.1929 75 26 75H70"
-          stroke="#5AAEAE"
+          stroke="#f97316"
           stroke-width="1"
           fill="transparent"></path>
       </svg>
@@ -97,7 +97,7 @@ const tertiaryCTA = { text: "Learn More", href: "#" };
       {/* Second Feature Card */}
       <FeatureCard
         icon="brain"
-        description="Use statistical models to identify key patterns and trends."
+        description="Auto-validate against module specs. See issues instantly."
         styleClass="self-center"
       />
 
@@ -117,7 +117,7 @@ const tertiaryCTA = { text: "Learn More", href: "#" };
         <path
           class="beam-line"
           d="M0.5 1.5H56C69.8071 1.5 81 12.6929 81 26.5V73"
-          stroke="#5AAEAE"
+          stroke="#f97316"
           stroke-width="1"
           fill="transparent"></path>
       </svg>
@@ -125,7 +125,7 @@ const tertiaryCTA = { text: "Learn More", href: "#" };
       {/* Third Feature Card */}
       <FeatureCard
         icon="lightbulb"
-        description="Convert insights into visuals and actionable decisions."
+        description="Export to SD card with correct structure and formats."
         styleClass="self-end"
       />
     </div>

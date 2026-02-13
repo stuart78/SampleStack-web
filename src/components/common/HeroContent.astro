@@ -1,11 +1,11 @@
 ---
 import Button from "@ui/Button.astro";
 
-const title = "Your Ultimate Audio Sample Library";
+const title = "Sample Management. Simplified.";
 const subTitle =
-  "Discover, organize, and create with thousands of high-quality audio samples. Browse loops, one-shots, and sound effects. Build your perfect sound palette and take your music production to the next level.";
-const secondaryCTA = { text: "Start Free Trial", href: "https://github.com/stuart78/SampleStack-web" };
-const primaryCTA = { text: "View Pricing", href: "/downloads/license-options" };
+  "The native macOS sample manager built for Eurorack and hardware samplers. Organize, validate, and convert your library for Morphagene, Squid Salmple, Digitakt, and more, so you spend less time on file prep and more time making music.";
+const primaryCTA = { text: "Download Beta", href: "https://github.com/stuart78/SampleManager/releases" };
+const secondaryCTA = { text: "Watch Demo", href: "#demo" };
 ---
 
 {/* Hero Content */}
@@ -25,8 +25,8 @@ const primaryCTA = { text: "View Pricing", href: "/downloads/license-options" };
 
 {/* CTA Buttons */}
 <div class="flex flex-col justify-center gap-5 sm:flex-row">
-  <Button href={secondaryCTA.href} variant="secondary" target="_blank"
-    >{secondaryCTA.text}</Button
+  <Button href={primaryCTA.href} variant="primary" target="_blank"
+    >{primaryCTA.text}</Button
   >
-  <Button href={primaryCTA.href} variant="primary">{primaryCTA.text}</Button>
+  <Button href={secondaryCTA.href} variant="secondary">{secondaryCTA.text}</Button>
 </div>

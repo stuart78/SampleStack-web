@@ -1,0 +1,334 @@
+---
+export const prerender = true;
+import BaseLayout from "@layout/BaseLayout.astro";
+import TableOfContents from "@common/TableOfContents.astro";
+
+const seo = {
+  title: "Quick Start Guide - SampleStack",
+  description:
+    "Get up and running with SampleStack in 5 minutes. Learn how to import samples, validate formats, and export to your hardware sampler.",
+};
+
+const toc = [
+  { id: "what-is-samplestack", label: "What is SampleStack?" },
+  { id: "step-1", label: "Step 1: Add Your Library" },
+  { id: "step-2", label: "Step 2: Create a Collection" },
+  { id: "step-3", label: "Step 3: Find Samples" },
+  { id: "step-4", label: "Step 4: Copy Samples" },
+  { id: "step-5", label: "Step 5: Preview and Edit" },
+  { id: "step-6", label: "Step 6: Export to SD Card" },
+  { id: "keyboard-shortcuts", label: "Keyboard Shortcuts" },
+  { id: "tips", label: "Tips" },
+];
+---
+
+<BaseLayout seo={seo}>
+  <div class="mx-auto max-w-sm px-4 pb-20 pt-48 sm:max-w-xl sm:px-6 md:max-w-4xl lg:max-w-5xl lg:px-8 xl:max-w-6xl 2xl:max-w-[81rem]">
+    <div class="xl:grid xl:grid-cols-[200px_1fr] xl:gap-10">
+    <TableOfContents items={toc} />
+    <section>
+      <h1 class="text-balance text-4xl text-slate-800 sm:text-5xl">
+        SampleStack Quick Start Guide
+      </h1>
+    <p class="mt-4 text-base/7 text-slate-600">
+      Get up and running with SampleStack in 5 minutes.
+    </p>
+
+    <!-- What is SampleStack? -->
+    <h2 id="what-is-samplestack" class="mt-12 text-2xl font-semibold text-slate-800">
+      What is SampleStack?
+    </h2>
+    <p class="mt-4 text-base/7 text-slate-600">
+      SampleStack helps you manage audio samples for hardware samplers like
+      Morphagene, Digitakt, Octatrack, and more. It validates your samples
+      against hardware requirements, converts incompatible files, and organizes
+      everything for easy SD card export.
+    </p>
+
+    <!-- Step 1 -->
+    <h2 id="step-1" class="mt-12 text-2xl font-semibold text-slate-800">
+      Step 1: Add Your Sample Library
+    </h2>
+    <p class="mt-4 text-base/7 text-slate-600">
+      Your sample library is your central collection of all samples. SampleStack
+      will help you copy and convert samples from here to your
+      hardware-specific collections.
+    </p>
+    <ol class="mt-4 list-decimal pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Launch SampleStack</li>
+      <li>
+        Click <strong>File &rarr; Add Sample Library</strong> (or use the +
+        button in the sidebar)
+      </li>
+      <li>Select a folder containing your audio samples</li>
+      <li>SampleStack will scan the folder and display your samples</li>
+    </ol>
+    <div class="mt-4 rounded-lg bg-slate-50 p-4 text-sm text-slate-600">
+      <strong>Tip:</strong> The first library you add automatically becomes your
+      "Sample Library" (shown with a waveform icon).
+    </div>
+
+    <!-- Step 2 -->
+    <h2 id="step-2" class="mt-12 text-2xl font-semibold text-slate-800">
+      Step 2: Create a Hardware Collection
+    </h2>
+    <p class="mt-4 text-base/7 text-slate-600">
+      Collections are organized for specific hardware. SampleStack knows the
+      requirements for each device.
+    </p>
+    <ol class="mt-4 list-decimal pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Click <strong>File &rarr; New Collection</strong></li>
+      <li>
+        Select your hardware from the dropdown (Multigrain, Morphagene,
+        Digitakt, etc.)
+      </li>
+      <li>Choose how many folders to create (projects, banks, stations)</li>
+      <li>Pick a location on your SD card or local drive</li>
+      <li>Click <strong>Create</strong></li>
+    </ol>
+    <p class="mt-4 text-base/7 text-slate-600">
+      SampleStack creates the correct folder structure automatically.
+    </p>
+
+    <!-- Step 3 -->
+    <h2 id="step-3" class="mt-12 text-2xl font-semibold text-slate-800">
+      Step 3: Find Samples with the Filter Bar
+    </h2>
+    <p class="mt-4 text-base/7 text-slate-600">
+      Use the filter bar above the sample list to quickly find what you need:
+    </p>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>
+        <strong>Search</strong>: Type to filter by filename (results appear
+        instantly)
+      </li>
+      <li>
+        <strong>Status</strong>: Filter by Valid, Needs Conversion, or Invalid
+      </li>
+      <li>
+        <strong>Tags</strong>: Filter by one or more tags (multi-select)
+      </li>
+      <li>
+        <strong>Ratings</strong>: Filter by star rating (multi-select)
+      </li>
+      <li>
+        <strong>Pitch</strong>: Filter by detected musical pitch
+      </li>
+    </ul>
+    <div class="mt-4 rounded-lg bg-slate-50 p-4 text-sm text-slate-600">
+      <strong>Tips:</strong>
+      <ul class="mt-2 list-disc pl-5 space-y-1">
+        <li>
+          Folders containing matching samples auto-expand when you search
+        </li>
+        <li>
+          Click the folder icon to toggle between hierarchy view and flat list
+        </li>
+        <li>Click Clear to reset all filters</li>
+      </ul>
+    </div>
+
+    <!-- Step 4 -->
+    <h2 id="step-4" class="mt-12 text-2xl font-semibold text-slate-800">
+      Step 4: Copy Samples to Your Collection
+    </h2>
+    <ol class="mt-4 list-decimal pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>In the sidebar, click your Sample Library</li>
+      <li>Browse or search for samples you want to use</li>
+      <li>
+        Select samples (Cmd+click for multiple, Shift+click for range)
+      </li>
+      <li>
+        Either:
+        <ul class="mt-2 list-disc pl-6 space-y-1">
+          <li>Drag samples onto your collection in the sidebar, or</li>
+          <li>Click the Copy to Library toolbar button</li>
+        </ul>
+      </li>
+      <li>
+        Choose options:
+        <ul class="mt-2 list-disc pl-6 space-y-1">
+          <li>
+            Convert incompatible samples: Automatically adjusts sample rate, bit
+            depth, channels
+          </li>
+          <li>
+            Truncate long samples: Trims samples that exceed hardware limits
+          </li>
+        </ul>
+      </li>
+      <li>Click <strong>Copy</strong></li>
+    </ol>
+
+    <!-- Step 5 -->
+    <h2 id="step-5" class="mt-12 text-2xl font-semibold text-slate-800">
+      Step 5: Preview and Edit Samples
+    </h2>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Quick Preview</h3>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Double-click any sample to play it from the beginning</li>
+      <li>Spacebar plays/pauses the selected sample</li>
+      <li>Double-click folders to expand/collapse them</li>
+    </ul>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">Expanded Player</h3>
+    <ol class="mt-4 list-decimal pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>
+        Click the expand button (arrow icon) in the floating player
+      </li>
+      <li>View the full stereo waveform with zoom controls</li>
+      <li>Add cue points by Option+clicking on the waveform</li>
+      <li>
+        Use the Edit menu (scissors icon) for advanced editing: Split, crop, or
+        cut audio regions. Auto-detect transients for cue points.
+      </li>
+      <li>Use the Fade menu to apply fades to selected regions</li>
+    </ol>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">
+      Non-Destructive Editing
+    </h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      All audio edits (crop, cut, split, fade) work on a temporary copy:
+    </p>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Preview changes immediately in the waveform and player</li>
+      <li>Click <strong>Save</strong> to write changes to the original file</li>
+      <li>Click <strong>Discard</strong> to revert to the original</li>
+    </ul>
+
+    <h3 class="mt-8 text-lg font-semibold text-slate-800">
+      Understanding Validation Colors
+    </h3>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>
+        <strong>Green badge</strong>: Sample is compatible with your hardware
+      </li>
+      <li>
+        <strong>Orange badge</strong>: Sample needs conversion (wrong format, but
+        fixable)
+      </li>
+      <li>
+        <strong>Red badge</strong>: Sample has issues (wrong filename,
+        unsupported format)
+      </li>
+    </ul>
+
+    <!-- Step 6 -->
+    <h2 id="step-6" class="mt-12 text-2xl font-semibold text-slate-800">
+      Step 6: Export to SD Card
+    </h2>
+    <p class="mt-4 text-base/7 text-slate-600">
+      Once your collection is organized:
+    </p>
+    <ol class="mt-4 list-decimal pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Eject any mounted SD cards</li>
+      <li>Insert your hardware's SD card</li>
+      <li>
+        If you created your collection directly on the SD card, you're done!
+      </li>
+      <li>Otherwise, copy the collection folder to your SD card</li>
+    </ol>
+
+    <!-- Keyboard Shortcuts -->
+    <h2 id="keyboard-shortcuts" class="mt-12 text-2xl font-semibold text-slate-800">
+      Keyboard Shortcuts
+    </h2>
+    <table class="mt-4 w-full text-left text-sm">
+      <thead>
+        <tr class="border-b border-slate-200">
+          <th class="py-2 pr-4 font-medium text-slate-800">Action</th>
+          <th class="py-2 pr-4 font-medium text-slate-800">Shortcut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Play/Pause</td>
+          <td class="py-2 pr-4 text-slate-600">Spacebar</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Play from beginning</td>
+          <td class="py-2 pr-4 text-slate-600">Double-click sample</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Navigate samples</td>
+          <td class="py-2 pr-4 text-slate-600">Arrow keys</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Expand/Collapse folder</td>
+          <td class="py-2 pr-4 text-slate-600"
+            >Right/Left arrows or Double-click</td
+          >
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Rename</td>
+          <td class="py-2 pr-4 text-slate-600"
+            >Return or Right-click &rarr; Rename</td
+          >
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Zoom waveform in</td>
+          <td class="py-2 pr-4 text-slate-600">=</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Zoom waveform out</td>
+          <td class="py-2 pr-4 text-slate-600">-</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Add cue point</td>
+          <td class="py-2 pr-4 text-slate-600">Option+click on waveform</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Undo</td>
+          <td class="py-2 pr-4 text-slate-600">Cmd+Z</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Redo</td>
+          <td class="py-2 pr-4 text-slate-600">Cmd+Shift+Z</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Tips -->
+    <h2 id="tips" class="mt-12 text-2xl font-semibold text-slate-800">Tips</h2>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>
+        <strong>Filter with multiple criteria</strong>: Combine search, tags,
+        ratings, and pitch filters to narrow down results
+      </li>
+      <li>
+        <strong>Organize with tags</strong>: Right-click samples to add tags,
+        then use the Tags filter or sidebar browser
+      </li>
+      <li>
+        <strong>Rate your favorites</strong>: Use the star rating in the
+        inspector to mark your best samples
+      </li>
+      <li>
+        <strong>Ignore system files</strong>: Right-click and choose "Ignore" to
+        hide metadata files like .DS_Store
+      </li>
+      <li>
+        <strong>Customize colors</strong>: Right-click a collection and choose
+        "Set Color" to personalize your sidebar
+      </li>
+      <li>
+        <strong>Track sample usage</strong>: The Usage tab in the inspector shows
+        where samples have been copied
+      </li>
+    </ul>
+
+    <!-- Back to Help -->
+    <div class="mt-16">
+      <a
+        href="/help"
+        class="text-sm font-medium text-orange-500 hover:text-orange-600"
+      >
+        &larr; Back to Help
+      </a>
+    </div>
+    </section>
+    </div>
+  </div>
+</BaseLayout>

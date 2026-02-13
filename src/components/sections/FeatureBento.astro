@@ -7,7 +7,7 @@ import image_3 from "@images/dashboard.webp";
 import PlatformOrbit from "@common/PlatformOrbit.astro";
 
 // Content for the section title and subtitle
-const title = `<span class="text-teal-700">Data</span><span class="font-normal text-slate-400">Nova</span>'s Powerful Analytics Suite`;
+const title = `<span class="text-orange-500">Data</span><span class="font-normal text-slate-400">Nova</span>'s Powerful Analytics Suite`;
 const subTitle = `Discover how DataNova transforms your Excel workspace into a comprehensive analytics powerhouse, making data analysis accessible and actionable.`;
 
 const features = [
@@ -63,7 +63,7 @@ const features = [
 ];
 ---
 
-<div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 md:py-14 lg:px-8 lg:py-20">
+<div class="mx-auto max-w-sm px-4 py-10 sm:max-w-xl sm:px-6 md:max-w-4xl md:py-14 lg:max-w-5xl lg:px-8 lg:py-20 xl:max-w-6xl 2xl:max-w-[81rem]">
   {/* Section container for the title and subtitle */}
   <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
     <h2
@@ -76,7 +76,7 @@ const features = [
     </p>
   </div>
 
-  <div class="mx-auto max-w-2xl px-6 lg:max-w-[85rem] lg:px-0">
+  <div class="mx-auto max-w-2xl px-6 lg:max-w-none lg:px-0">
     <div class="mt-10 grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
       {
         features.map((feature) => (
@@ -102,7 +102,7 @@ const features = [
 
                 {/* Render list items if available */}
                 {feature.listItems && (
-                  <ul class="mt-2 max-w-lg list-inside list-disc space-y-1 text-sm/6 text-slate-600 marker:text-teal-600 max-lg:text-center">
+                  <ul class="mt-2 max-w-lg list-inside list-disc space-y-1 text-sm/6 text-slate-600 marker:text-purple-500 max-lg:text-center">
                     {feature.listItems.map((item) => (
                       <li set:html={item} />
                     ))}

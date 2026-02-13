@@ -1,0 +1,752 @@
+---
+export const prerender = true;
+import BaseLayout from "@layout/BaseLayout.astro";
+import TableOfContents from "@common/TableOfContents.astro";
+
+const seo = {
+  title: "Supported Modules - SampleStack",
+  description: "Detailed hardware specifications for all samplers supported by SampleStack. Eurorack modules and standalone samplers including Morphagene, Multigrain, Squid Salmple, Digitakt, Octatrack, and more.",
+};
+
+const toc = [
+  { id: "eurorack-modules", label: "Eurorack Modules" },
+  { id: "standalone-samplers", label: "Standalone Samplers" },
+  { id: "quick-reference", label: "Quick Reference Table" },
+  { id: "features-by-module", label: "Features by Module" },
+];
+---
+
+<BaseLayout seo={seo}>
+  <div class="mx-auto max-w-sm px-4 pb-20 pt-48 sm:max-w-xl sm:px-6 md:max-w-4xl lg:max-w-5xl lg:px-8 xl:max-w-6xl 2xl:max-w-[81rem]">
+    <div class="xl:grid xl:grid-cols-[200px_1fr] xl:gap-10">
+    <TableOfContents items={toc} />
+    <section>
+    <h1 class="text-balance text-4xl text-slate-800 sm:text-5xl">
+      SampleStack Supported Modules
+    </h1>
+    <p class="mt-4 text-lg text-slate-600">
+      This document provides detailed technical specifications for all hardware samplers supported by SampleStack.
+    </p>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- Eurorack Modules                                       -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <h2 id="eurorack-modules" class="mt-16 text-2xl font-semibold text-slate-800">Eurorack Modules</h2>
+
+    <!-- Multigrain -->
+    <h3 class="mt-10 text-xl font-semibold text-slate-800">Multigrain (Intellijel)</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      A granular sample player and texture synthesizer for Eurorack.
+    </p>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Audio Requirements</h4>
+    <table class="w-full mt-4 text-sm text-left">
+      <thead>
+        <tr class="border-b border-slate-200">
+          <th class="py-2 pr-4 font-medium text-slate-800">Parameter</th>
+          <th class="py-2 pr-4 font-medium text-slate-800">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Sample Rate</td>
+          <td class="py-2 pr-4 text-slate-600">48,000 Hz</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Bit Depth</td>
+          <td class="py-2 pr-4 text-slate-600">16-bit integer</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Channels</td>
+          <td class="py-2 pr-4 text-slate-600">Stereo (2 channels)</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Format</td>
+          <td class="py-2 pr-4 text-slate-600">WAV</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Max Duration</td>
+          <td class="py-2 pr-4 text-slate-600">32 seconds (soft limit, truncated on import)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Folder Structure</h4>
+    <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-50 p-4 text-sm text-slate-700 font-mono">SD Card Root/
+&#x251C;&#x2500;&#x2500; Wavs/           # Global samples (up to 128 files)
+&#x251C;&#x2500;&#x2500; Recs/           # Module recordings (up to 1024 files)
+&#x251C;&#x2500;&#x2500; Project01/      # Project folder (up to 128 WAVs each)
+&#x251C;&#x2500;&#x2500; Project02/
+&#x251C;&#x2500;&#x2500; ...
+&#x2514;&#x2500;&#x2500; Project48/      # Up to 48 project folders</pre>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Notes</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>The 32-second limit is a soft limit; longer samples are truncated during import</li>
+      <li>Project folders are numbered 01-48</li>
+      <li>Each project can contain up to 128 sample files</li>
+      <li>Global Wavs folder is accessible from all projects</li>
+    </ul>
+
+    <!-- Morphagene -->
+    <h3 class="mt-10 text-xl font-semibold text-slate-800">Morphagene (Make Noise)</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      A tape and microsound exploration module for Eurorack.
+    </p>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Audio Requirements</h4>
+    <table class="w-full mt-4 text-sm text-left">
+      <thead>
+        <tr class="border-b border-slate-200">
+          <th class="py-2 pr-4 font-medium text-slate-800">Parameter</th>
+          <th class="py-2 pr-4 font-medium text-slate-800">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Sample Rate</td>
+          <td class="py-2 pr-4 text-slate-600">48,000 Hz</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Bit Depth</td>
+          <td class="py-2 pr-4 text-slate-600">32-bit float</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Channels</td>
+          <td class="py-2 pr-4 text-slate-600">Stereo (2 channels)</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Format</td>
+          <td class="py-2 pr-4 text-slate-600">WAV</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Max Duration</td>
+          <td class="py-2 pr-4 text-slate-600">~174 seconds (2.9 minutes) per reel</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Folder Structure</h4>
+    <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-50 p-4 text-sm text-slate-700 font-mono">SD Card Root/
+&#x251C;&#x2500;&#x2500; mg1.wav         # Reel 1
+&#x251C;&#x2500;&#x2500; mg2.wav         # Reel 2
+&#x251C;&#x2500;&#x2500; ...
+&#x2514;&#x2500;&#x2500; mgw.wav         # Reel 32 (uses letters after 9: mga-mgw)</pre>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Filename Requirements</h4>
+    <p class="mt-4 text-base/7 text-slate-600">
+      Files must be named exactly:
+    </p>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>mg1.wav through mg9.wav (reels 1-9)</li>
+      <li>mga.wav through mgw.wav (reels 10-32)</li>
+    </ul>
+    <p class="mt-4 text-base/7 text-slate-600">
+      Total: 32 reels maximum
+    </p>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Splice Markers (Cue Points)</h4>
+    <p class="mt-4 text-base/7 text-slate-600">
+      Morphagene uses WAV file cue points to define splice boundaries:
+    </p>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Cue points stored in the standard WAV cue chunk</li>
+      <li>Labels can be stored in the adtl LIST chunk</li>
+      <li>SampleStack can read, edit, and write cue points</li>
+    </ul>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Notes</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>32-bit float format is required for proper playback</li>
+      <li>Splice markers define the boundaries for Morphagene's splice navigation</li>
+      <li>The module reads cue points to determine where to divide the reel</li>
+    </ul>
+
+    <!-- Squid Salmple -->
+    <h3 class="mt-10 text-xl font-semibold text-slate-800">Squid Salmple (ALM Busy Circuits)</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      An 8-channel sampler and audio looper for Eurorack.
+    </p>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Audio Requirements</h4>
+    <table class="w-full mt-4 text-sm text-left">
+      <thead>
+        <tr class="border-b border-slate-200">
+          <th class="py-2 pr-4 font-medium text-slate-800">Parameter</th>
+          <th class="py-2 pr-4 font-medium text-slate-800">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Sample Rate</td>
+          <td class="py-2 pr-4 text-slate-600">44,100 Hz</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Bit Depth</td>
+          <td class="py-2 pr-4 text-slate-600">16-bit integer</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Channels</td>
+          <td class="py-2 pr-4 text-slate-600">Mono (1 channel)</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Format</td>
+          <td class="py-2 pr-4 text-slate-600">WAV</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Max Duration</td>
+          <td class="py-2 pr-4 text-slate-600">~11 seconds</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Folder Structure</h4>
+    <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-50 p-4 text-sm text-slate-700 font-mono">SD Card Root/
+&#x2514;&#x2500;&#x2500; ALM022/
+    &#x251C;&#x2500;&#x2500; Bank01/
+    &#x2502;   &#x251C;&#x2500;&#x2500; 1/          # Channel 1 samples
+    &#x2502;   &#x251C;&#x2500;&#x2500; 2/          # Channel 2 samples
+    &#x2502;   &#x251C;&#x2500;&#x2500; ...
+    &#x2502;   &#x251C;&#x2500;&#x2500; 8/          # Channel 8 samples
+    &#x2502;   &#x2514;&#x2500;&#x2500; info.txt    # Optional bank name (first 8 chars)
+    &#x251C;&#x2500;&#x2500; Bank02/
+    &#x2514;&#x2500;&#x2500; ...             # Up to 99 banks</pre>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Bank Naming</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Each Bank folder can contain an info.txt file</li>
+      <li>The first 8 ASCII characters of the file define the bank name</li>
+      <li>Displayed on the module's screen when selecting banks</li>
+    </ul>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Notes</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Banks are numbered 01-99</li>
+      <li>Each bank has 8 channel subfolders (1-8)</li>
+      <li>Samples in each channel folder are selectable per-channel</li>
+      <li>Mono format is required</li>
+    </ul>
+
+    <!-- Erica Sample Drum -->
+    <h3 class="mt-10 text-xl font-semibold text-slate-800">Erica Sample Drum (Erica Synths)</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      A drum sample player module for Eurorack.
+    </p>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Audio Requirements</h4>
+    <table class="w-full mt-4 text-sm text-left">
+      <thead>
+        <tr class="border-b border-slate-200">
+          <th class="py-2 pr-4 font-medium text-slate-800">Parameter</th>
+          <th class="py-2 pr-4 font-medium text-slate-800">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Sample Rate</td>
+          <td class="py-2 pr-4 text-slate-600">48,000 Hz</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Bit Depth</td>
+          <td class="py-2 pr-4 text-slate-600">16-bit integer</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Channels</td>
+          <td class="py-2 pr-4 text-slate-600">Mono (1 channel)</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Format</td>
+          <td class="py-2 pr-4 text-slate-600">WAV</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Max Duration</td>
+          <td class="py-2 pr-4 text-slate-600">Limited by 32MB RAM</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="mt-4 text-base/7 text-slate-600">
+      Supports cue points for slice-based playback (stored in WAV cue chunk).
+    </p>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Notes</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Total sample storage limited by module's 32MB RAM</li>
+      <li>Mono samples only</li>
+    </ul>
+
+    <!-- Radio Music -->
+    <h3 class="mt-10 text-xl font-semibold text-slate-800">Radio Music (Music Thing Modular)</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      A virtual radio module that plays back audio files.
+    </p>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Audio Requirements</h4>
+    <table class="w-full mt-4 text-sm text-left">
+      <thead>
+        <tr class="border-b border-slate-200">
+          <th class="py-2 pr-4 font-medium text-slate-800">Parameter</th>
+          <th class="py-2 pr-4 font-medium text-slate-800">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Sample Rate</td>
+          <td class="py-2 pr-4 text-slate-600">Any (no conversion required)</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Bit Depth</td>
+          <td class="py-2 pr-4 text-slate-600">Any (no conversion required)</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Channels</td>
+          <td class="py-2 pr-4 text-slate-600">Mono preferred (plays first channel of stereo)</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Format</td>
+          <td class="py-2 pr-4 text-slate-600">WAV or RAW</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Max Files</td>
+          <td class="py-2 pr-4 text-slate-600">330 total (48 per station)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Folder Structure</h4>
+    <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-50 p-4 text-sm text-slate-700 font-mono">SD Card Root/
+&#x251C;&#x2500;&#x2500; 01/             # Station 1 (up to 48 files)
+&#x251C;&#x2500;&#x2500; 02/             # Station 2
+&#x251C;&#x2500;&#x2500; ...
+&#x2514;&#x2500;&#x2500; 16/             # Station 16 (maximum 16 stations)</pre>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">RAW File Format</h4>
+    <p class="mt-4 text-base/7 text-slate-600">
+      Radio Music supports headerless RAW PCM files: 16-bit signed little-endian, Mono, 44,100 Hz assumed.
+    </p>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Notes</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Very flexible format requirements</li>
+      <li>Stations are simple numbered folders (01-16)</li>
+      <li>Up to 48 files per station, 330 files total</li>
+      <li>Stereo files play only the left channel</li>
+    </ul>
+
+    <!-- Rample -->
+    <h3 class="mt-10 text-xl font-semibold text-slate-800">Rample (Squarp Instruments)</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      A 4-voice sample player for Eurorack.
+    </p>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Audio Requirements</h4>
+    <table class="w-full mt-4 text-sm text-left">
+      <thead>
+        <tr class="border-b border-slate-200">
+          <th class="py-2 pr-4 font-medium text-slate-800">Parameter</th>
+          <th class="py-2 pr-4 font-medium text-slate-800">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Sample Rate</td>
+          <td class="py-2 pr-4 text-slate-600">44,100 Hz</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Bit Depth</td>
+          <td class="py-2 pr-4 text-slate-600">16-bit integer (8-bit also supported)</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Channels</td>
+          <td class="py-2 pr-4 text-slate-600">Mono or Stereo</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Format</td>
+          <td class="py-2 pr-4 text-slate-600">WAV</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Max Duration</td>
+          <td class="py-2 pr-4 text-slate-600">No limit</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Folder Structure</h4>
+    <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-50 p-4 text-sm text-slate-700 font-mono">SD Card Root/
+&#x251C;&#x2500;&#x2500; A0/             # Kit A0
+&#x2502;   &#x251C;&#x2500;&#x2500; 1_kick.wav      # Voice 1 sample
+&#x2502;   &#x251C;&#x2500;&#x2500; 2_snare.wav     # Voice 2 sample
+&#x2502;   &#x251C;&#x2500;&#x2500; 3_hihat.wav     # Voice 3 sample
+&#x2502;   &#x2514;&#x2500;&#x2500; 4_clap.wav      # Voice 4 sample
+&#x251C;&#x2500;&#x2500; A1/             # Kit A1
+&#x251C;&#x2500;&#x2500; ...
+&#x2514;&#x2500;&#x2500; Z99/            # Kit Z99</pre>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Filename Requirements</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Filenames must start with the voice number (1-4)</li>
+      <li>Format: &#123;voice&#125;_&#123;name&#125;.wav or &#123;voice&#125;.wav</li>
+      <li>Examples: 1_kick.wav, 2_snare.wav, 3.wav, 4_rim.wav</li>
+    </ul>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Kit Naming</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Kit folders are named &#123;Letter&#125;&#123;Number&#125;</li>
+      <li>Letters: A-Z, Numbers: 0-99</li>
+      <li>Maximum: 2,600 kits (26 x 100)</li>
+    </ul>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Notes</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Each kit has 4 voices</li>
+      <li>Each voice can have up to 12 sample layers</li>
+      <li>Both mono and stereo supported</li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- Standalone Samplers                                    -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <hr class="mt-16 border-slate-200" />
+    <h2 id="standalone-samplers" class="mt-16 text-2xl font-semibold text-slate-800">Standalone Samplers</h2>
+
+    <!-- Blackbox -->
+    <h3 class="mt-10 text-xl font-semibold text-slate-800">Blackbox (1010music)</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      A compact sampling studio with pads and sequencer.
+    </p>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Audio Requirements</h4>
+    <table class="w-full mt-4 text-sm text-left">
+      <thead>
+        <tr class="border-b border-slate-200">
+          <th class="py-2 pr-4 font-medium text-slate-800">Parameter</th>
+          <th class="py-2 pr-4 font-medium text-slate-800">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Sample Rate</td>
+          <td class="py-2 pr-4 text-slate-600">Any (48,000 Hz preferred)</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Bit Depth</td>
+          <td class="py-2 pr-4 text-slate-600">16, 24, or 32-bit</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Channels</td>
+          <td class="py-2 pr-4 text-slate-600">Mono or Stereo</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Format</td>
+          <td class="py-2 pr-4 text-slate-600">WAV</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Max File Size</td>
+          <td class="py-2 pr-4 text-slate-600">4GB (FAT32 limitation)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Folder Structure</h4>
+    <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-50 p-4 text-sm text-slate-700 font-mono">SD Card Root/
+&#x251C;&#x2500;&#x2500; Presets/        # XML preset files
+&#x2514;&#x2500;&#x2500; Samples/        # Audio files (any organization)
+    &#x251C;&#x2500;&#x2500; Drums/
+    &#x251C;&#x2500;&#x2500; Synths/
+    &#x2514;&#x2500;&#x2500; ...</pre>
+
+    <p class="mt-4 text-base/7 text-slate-600">
+      Related 1010music Products (same specs): Bluebox, Lemondrop, Fireball, Razzmatazz, Tangerine
+    </p>
+
+    <!-- Octatrack -->
+    <h3 class="mt-10 text-xl font-semibold text-slate-800">Octatrack (Elektron)</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      A dynamic performance sampler with 8 audio tracks.
+    </p>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Audio Requirements</h4>
+    <table class="w-full mt-4 text-sm text-left">
+      <thead>
+        <tr class="border-b border-slate-200">
+          <th class="py-2 pr-4 font-medium text-slate-800">Parameter</th>
+          <th class="py-2 pr-4 font-medium text-slate-800">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Sample Rate</td>
+          <td class="py-2 pr-4 text-slate-600">44,100 Hz (other rates converted on import)</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Bit Depth</td>
+          <td class="py-2 pr-4 text-slate-600">16-bit (24-bit for Flex machines)</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Channels</td>
+          <td class="py-2 pr-4 text-slate-600">Mono or Stereo</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Format</td>
+          <td class="py-2 pr-4 text-slate-600">WAV, AIF, AIFF</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Max Samples</td>
+          <td class="py-2 pr-4 text-slate-600">128 per project</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Folder Structure</h4>
+    <pre class="mt-4 overflow-x-auto rounded-lg bg-slate-50 p-4 text-sm text-slate-700 font-mono">SD Card Root/
+&#x2514;&#x2500;&#x2500; AUDIO/
+    &#x251C;&#x2500;&#x2500; Project01/
+    &#x2502;   &#x2514;&#x2500;&#x2500; [samples]
+    &#x251C;&#x2500;&#x2500; Project02/
+    &#x2514;&#x2500;&#x2500; ...</pre>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Notes</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Projects are organized under the /AUDIO/ folder</li>
+      <li>Each project can reference up to 128 samples</li>
+      <li>Supports both static and Flex machines (Flex allows 24-bit)</li>
+    </ul>
+
+    <!-- Digitakt -->
+    <h3 class="mt-10 text-xl font-semibold text-slate-800">Digitakt (Elektron)</h3>
+    <p class="mt-4 text-base/7 text-slate-600">
+      A drum computer and sampler.
+    </p>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Audio Requirements</h4>
+    <table class="w-full mt-4 text-sm text-left">
+      <thead>
+        <tr class="border-b border-slate-200">
+          <th class="py-2 pr-4 font-medium text-slate-800">Parameter</th>
+          <th class="py-2 pr-4 font-medium text-slate-800">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Sample Rate</td>
+          <td class="py-2 pr-4 text-slate-600">48,000 Hz (converted internally)</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Bit Depth</td>
+          <td class="py-2 pr-4 text-slate-600">16-bit integer</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Channels</td>
+          <td class="py-2 pr-4 text-slate-600">Mono only</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Format</td>
+          <td class="py-2 pr-4 text-slate-600">WAV</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Max Duration</td>
+          <td class="py-2 pr-4 text-slate-600">~33 seconds</td>
+        </tr>
+        <tr class="border-b border-slate-200">
+          <td class="py-2 pr-4 text-slate-600">Max Samples</td>
+          <td class="py-2 pr-4 text-slate-600">2,048 on +Drive, 128 per project</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Transfer Method</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Uses Elektron Transfer application for sample management</li>
+      <li>No specific folder structure required</li>
+      <li>Samples loaded via USB connection</li>
+    </ul>
+
+    <h4 class="mt-6 text-base font-semibold text-slate-700">Notes</h4>
+    <ul class="mt-4 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+      <li>Mono samples only (stereo converted to mono)</li>
+      <li>Internal storage on +Drive holds 2,048 samples</li>
+    </ul>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- Quick Reference Table                                  -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <hr class="mt-16 border-slate-200" />
+    <h2 id="quick-reference" class="mt-16 text-2xl font-semibold text-slate-800">Quick Reference Table</h2>
+
+    <div class="mt-4 overflow-x-auto">
+      <table class="w-full mt-4 text-sm text-left">
+        <thead>
+          <tr class="border-b border-slate-200">
+            <th class="py-2 pr-4 font-medium text-slate-800">Module</th>
+            <th class="py-2 pr-4 font-medium text-slate-800">Rate</th>
+            <th class="py-2 pr-4 font-medium text-slate-800">Bits</th>
+            <th class="py-2 pr-4 font-medium text-slate-800">Channels</th>
+            <th class="py-2 pr-4 font-medium text-slate-800">Max Duration</th>
+            <th class="py-2 pr-4 font-medium text-slate-800">Structure</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-slate-200">
+            <td class="py-2 pr-4 text-slate-600">Multigrain</td>
+            <td class="py-2 pr-4 text-slate-600">48kHz</td>
+            <td class="py-2 pr-4 text-slate-600">16-bit</td>
+            <td class="py-2 pr-4 text-slate-600">Stereo</td>
+            <td class="py-2 pr-4 text-slate-600">32s</td>
+            <td class="py-2 pr-4 text-slate-600">/Wavs/, /Project##/</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2 pr-4 text-slate-600">Morphagene</td>
+            <td class="py-2 pr-4 text-slate-600">48kHz</td>
+            <td class="py-2 pr-4 text-slate-600">32-bit float</td>
+            <td class="py-2 pr-4 text-slate-600">Stereo</td>
+            <td class="py-2 pr-4 text-slate-600">~174s</td>
+            <td class="py-2 pr-4 text-slate-600">mg1.wav - mgw.wav</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2 pr-4 text-slate-600">Squid Salmple</td>
+            <td class="py-2 pr-4 text-slate-600">44.1kHz</td>
+            <td class="py-2 pr-4 text-slate-600">16-bit</td>
+            <td class="py-2 pr-4 text-slate-600">Mono</td>
+            <td class="py-2 pr-4 text-slate-600">~11s</td>
+            <td class="py-2 pr-4 text-slate-600">/ALM022/Bank##/1-8/</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2 pr-4 text-slate-600">Erica Sample Drum</td>
+            <td class="py-2 pr-4 text-slate-600">48kHz</td>
+            <td class="py-2 pr-4 text-slate-600">16-bit</td>
+            <td class="py-2 pr-4 text-slate-600">Mono</td>
+            <td class="py-2 pr-4 text-slate-600">RAM limited</td>
+            <td class="py-2 pr-4 text-slate-600">Flat</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2 pr-4 text-slate-600">Radio Music</td>
+            <td class="py-2 pr-4 text-slate-600">Any</td>
+            <td class="py-2 pr-4 text-slate-600">Any</td>
+            <td class="py-2 pr-4 text-slate-600">Mono</td>
+            <td class="py-2 pr-4 text-slate-600">N/A</td>
+            <td class="py-2 pr-4 text-slate-600">/01/ - /16/</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2 pr-4 text-slate-600">Rample</td>
+            <td class="py-2 pr-4 text-slate-600">44.1kHz</td>
+            <td class="py-2 pr-4 text-slate-600">16-bit</td>
+            <td class="py-2 pr-4 text-slate-600">Mono/Stereo</td>
+            <td class="py-2 pr-4 text-slate-600">No limit</td>
+            <td class="py-2 pr-4 text-slate-600">/A0/ - /Z99/</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2 pr-4 text-slate-600">Blackbox</td>
+            <td class="py-2 pr-4 text-slate-600">Any</td>
+            <td class="py-2 pr-4 text-slate-600">16/24/32</td>
+            <td class="py-2 pr-4 text-slate-600">Any</td>
+            <td class="py-2 pr-4 text-slate-600">4GB</td>
+            <td class="py-2 pr-4 text-slate-600">/Presets/, /Samples/</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2 pr-4 text-slate-600">Octatrack</td>
+            <td class="py-2 pr-4 text-slate-600">44.1kHz</td>
+            <td class="py-2 pr-4 text-slate-600">16/24-bit</td>
+            <td class="py-2 pr-4 text-slate-600">Any</td>
+            <td class="py-2 pr-4 text-slate-600">RAM limited</td>
+            <td class="py-2 pr-4 text-slate-600">/AUDIO/Project/</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2 pr-4 text-slate-600">Digitakt</td>
+            <td class="py-2 pr-4 text-slate-600">48kHz</td>
+            <td class="py-2 pr-4 text-slate-600">16-bit</td>
+            <td class="py-2 pr-4 text-slate-600">Mono</td>
+            <td class="py-2 pr-4 text-slate-600">~33s</td>
+            <td class="py-2 pr-4 text-slate-600">Via Transfer app</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SampleStack Features by Module                         -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <hr class="mt-16 border-slate-200" />
+    <h2 id="features-by-module" class="mt-16 text-2xl font-semibold text-slate-800">SampleStack Features by Module</h2>
+
+    <div class="mt-4 overflow-x-auto">
+      <table class="w-full mt-4 text-sm text-left">
+        <thead>
+          <tr class="border-b border-slate-200">
+            <th class="py-2 pr-4 font-medium text-slate-800">Module</th>
+            <th class="py-2 pr-4 font-medium text-slate-800">Validation</th>
+            <th class="py-2 pr-4 font-medium text-slate-800">Conversion</th>
+            <th class="py-2 pr-4 font-medium text-slate-800">Cue Points</th>
+            <th class="py-2 pr-4 font-medium text-slate-800">Auto-Detect</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-slate-200">
+            <td class="py-2 pr-4 text-slate-600">Multigrain</td>
+            <td class="py-2 pr-4 text-slate-600">Yes</td>
+            <td class="py-2 pr-4 text-slate-600">Yes</td>
+            <td class="py-2 pr-4 text-slate-600">No</td>
+            <td class="py-2 pr-4 text-slate-600">Yes</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2 pr-4 text-slate-600">Morphagene</td>
+            <td class="py-2 pr-4 text-slate-600">Yes</td>
+            <td class="py-2 pr-4 text-slate-600">Yes</td>
+            <td class="py-2 pr-4 text-slate-600">Yes</td>
+            <td class="py-2 pr-4 text-slate-600">Yes</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2 pr-4 text-slate-600">Squid Salmple</td>
+            <td class="py-2 pr-4 text-slate-600">Yes</td>
+            <td class="py-2 pr-4 text-slate-600">Yes</td>
+            <td class="py-2 pr-4 text-slate-600">No</td>
+            <td class="py-2 pr-4 text-slate-600">Yes</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2 pr-4 text-slate-600">Erica Sample Drum</td>
+            <td class="py-2 pr-4 text-slate-600">Yes</td>
+            <td class="py-2 pr-4 text-slate-600">Yes</td>
+            <td class="py-2 pr-4 text-slate-600">Yes</td>
+            <td class="py-2 pr-4 text-slate-600">No</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2 pr-4 text-slate-600">Radio Music</td>
+            <td class="py-2 pr-4 text-slate-600">Yes</td>
+            <td class="py-2 pr-4 text-slate-600">No</td>
+            <td class="py-2 pr-4 text-slate-600">No</td>
+            <td class="py-2 pr-4 text-slate-600">Yes</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2 pr-4 text-slate-600">Rample</td>
+            <td class="py-2 pr-4 text-slate-600">Yes</td>
+            <td class="py-2 pr-4 text-slate-600">Yes</td>
+            <td class="py-2 pr-4 text-slate-600">No</td>
+            <td class="py-2 pr-4 text-slate-600">No</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2 pr-4 text-slate-600">Blackbox</td>
+            <td class="py-2 pr-4 text-slate-600">Yes</td>
+            <td class="py-2 pr-4 text-slate-600">Yes</td>
+            <td class="py-2 pr-4 text-slate-600">No</td>
+            <td class="py-2 pr-4 text-slate-600">Yes</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2 pr-4 text-slate-600">Octatrack</td>
+            <td class="py-2 pr-4 text-slate-600">Yes</td>
+            <td class="py-2 pr-4 text-slate-600">Yes</td>
+            <td class="py-2 pr-4 text-slate-600">No</td>
+            <td class="py-2 pr-4 text-slate-600">Yes</td>
+          </tr>
+          <tr class="border-b border-slate-200">
+            <td class="py-2 pr-4 text-slate-600">Digitakt</td>
+            <td class="py-2 pr-4 text-slate-600">Yes</td>
+            <td class="py-2 pr-4 text-slate-600">Yes</td>
+            <td class="py-2 pr-4 text-slate-600">No</td>
+            <td class="py-2 pr-4 text-slate-600">No</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </section>
+    </div>
+  </div>
+</BaseLayout>
