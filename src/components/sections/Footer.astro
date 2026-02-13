@@ -26,16 +26,18 @@ const copyrightYear = new Date().getFullYear();
         </p>
       </div>
 
-      <div class="flex gap-6 text-sm text-slate-600">
+      <div class="text-sm text-slate-600">
         <a href="mailto:hello@samplestack.app" class="hover:text-slate-800">hello@samplestack.app</a>
-        <a href="https://github.com/stuart78/SampleManager" target="_blank" rel="noopener noreferrer" class="hover:text-slate-800">GitHub</a>
       </div>
     </div>
 
     <hr class="mb-5 mt-10 border-slate-200" />
 
-    <p class="text-sm text-slate-400/50">
-      &copy; {copyrightYear} {companyName}
-    </p>
+    <div class="flex items-center justify-between">
+      <p class="text-sm text-slate-400/50">
+        &copy; {copyrightYear} {companyName}
+      </p>
+      <a href="/terms" class="text-sm text-slate-400/50 hover:text-slate-500">Terms & Privacy</a>
+    </div>
   </div>
 </footer>

@@ -1,0 +1,90 @@
+---
+export const prerender = true;
+import BaseLayout from "@layout/BaseLayout.astro";
+
+const seo = {
+  title: "Terms & Privacy - SampleStack",
+  description:
+    "Terms of use and privacy policy for SampleStack, the native macOS sample manager.",
+};
+
+const lastUpdated = "February 12, 2026";
+---
+
+<BaseLayout seo={seo}>
+  <div class="mx-auto max-w-sm px-4 pb-20 pt-48 sm:max-w-xl sm:px-6 md:max-w-4xl lg:max-w-5xl lg:px-8 xl:max-w-6xl 2xl:max-w-[81rem]">
+    <div class="mx-auto max-w-3xl">
+      <h1 class="text-balance text-4xl text-slate-800 sm:text-5xl">
+        Terms & Privacy
+      </h1>
+      <p class="mt-4 text-sm text-slate-400">Last updated: {lastUpdated}</p>
+
+      <!-- Terms of Use -->
+      <h2 class="mt-16 text-2xl font-semibold text-slate-800">Terms of Use</h2>
+
+      <h3 class="mt-8 text-lg font-semibold text-slate-700">Beta Software</h3>
+      <p class="mt-3 text-base/7 text-slate-600">
+        SampleStack is currently in beta. The software is provided on an "as is" and "as available" basis. While we do our best to ensure reliability, beta software may contain bugs, errors, or incomplete features. Use it at your own risk.
+      </p>
+
+      <h3 class="mt-8 text-lg font-semibold text-slate-700">Acceptable Use</h3>
+      <p class="mt-3 text-base/7 text-slate-600">
+        SampleStack is a tool for managing your own audio sample libraries. You are responsible for ensuring you have the right to use any audio files you manage with the software.
+      </p>
+
+      <h3 class="mt-8 text-lg font-semibold text-slate-700">No Warranty</h3>
+      <p class="mt-3 text-base/7 text-slate-600">
+        SampleStack is provided without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and noninfringement. In no event shall the authors be liable for any claim, damages, or other liability arising from the use of the software.
+      </p>
+
+      <h3 class="mt-8 text-lg font-semibold text-slate-700">Data & Files</h3>
+      <p class="mt-3 text-base/7 text-slate-600">
+        SampleStack reads and writes audio files on your local machine and connected storage devices. We recommend maintaining backups of your sample library. We are not responsible for any data loss that may occur during use.
+      </p>
+
+      <!-- Privacy Policy -->
+      <hr class="mt-16 border-slate-200" />
+      <h2 class="mt-16 text-2xl font-semibold text-slate-800">Privacy Policy</h2>
+
+      <h3 class="mt-8 text-lg font-semibold text-slate-700">The App</h3>
+      <p class="mt-3 text-base/7 text-slate-600">
+        SampleStack runs entirely on your Mac. The app does not collect, transmit, or store any personal data. Your audio files and library data remain on your local machine and are never sent to any server.
+      </p>
+      <p class="mt-3 text-base/7 text-slate-600">
+        The app connects to the internet only to check for software updates via Sparkle, an open-source update framework. This check sends only the app version and basic system information (macOS version) needed to determine if an update is available. No personal data is transmitted.
+      </p>
+
+      <h3 class="mt-8 text-lg font-semibold text-slate-700">This Website</h3>
+      <p class="mt-3 text-base/7 text-slate-600">
+        This website uses Google Tag Manager to understand how visitors find and use the site. This may collect:
+      </p>
+      <ul class="mt-3 list-disc pl-6 space-y-2 text-base/7 text-slate-600">
+        <li>Pages visited and time spent on the site</li>
+        <li>Referring website or search terms</li>
+        <li>General location (country/region, not precise)</li>
+        <li>Device type and browser</li>
+      </ul>
+      <p class="mt-3 text-base/7 text-slate-600">
+        This data is aggregated and anonymous. We do not use it to identify individual visitors. No personal information is collected through the website.
+      </p>
+
+      <h3 class="mt-8 text-lg font-semibold text-slate-700">Cookies</h3>
+      <p class="mt-3 text-base/7 text-slate-600">
+        This website may set cookies related to analytics. These cookies are used solely for understanding site traffic and do not track you across other websites.
+      </p>
+
+      <h3 class="mt-8 text-lg font-semibold text-slate-700">Third Parties</h3>
+      <p class="mt-3 text-base/7 text-slate-600">
+        We do not sell, trade, or otherwise share any data with third parties. The only third-party service used is Google Analytics (via Google Tag Manager) for anonymous website traffic analysis.
+      </p>
+
+      <!-- Contact -->
+      <hr class="mt-16 border-slate-200" />
+      <h2 class="mt-16 text-2xl font-semibold text-slate-800">Contact</h2>
+      <p class="mt-3 text-base/7 text-slate-600">
+        If you have questions about these terms or our privacy practices, contact us at
+        <a href="mailto:hello@samplestack.app" class="text-orange-600 hover:text-orange-700 underline decoration-orange-300">hello@samplestack.app</a>.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>SampleStack Updates</title>
+        <link>https://samplestack.app/appcast.xml</link>
+        <description>Most recent updates for SampleStack</description>
+        <language>en</language>
+
+        <item>
+            <title>Version 1.0.1</title>
+            <pubDate>Wed, 12 Feb 2026 17:56:40 -0800</pubDate>
+            <sparkle:version>2</sparkle:version>
+            <sparkle:shortVersionString>1.0.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>What's New in 1.0.1</h2>
+                <ul>
+                    <li>Added automatic updates via Sparkle</li>
+                    <li>New inline filter bar with search, status, tags, ratings, and pitch filters</li>
+                    <li>Multi-select filters for tags, ratings, and pitches</li>
+                    <li>Show/hide folders toggle for filtered results</li>
+                    <li>Improved header design with cleaner appearance</li>
+                </ul>
+            ]]></description>
+            <enclosure
+                url="https://samplestack.app/releases/SampleStack-1.0.1.dmg"
+                length="8956997"
+                type="application/octet-stream"
+                sparkle:edSignature="j8bDluKjoVDatl0ykFR2awYZO+ugJsgmbhSaHjoVtrm5RddWnDq8ww2/hkOYoQTGg4E6EHkmBvGOEbtERBfECw=="
+            />
+        </item>
+
+    </channel>
+</rss>
