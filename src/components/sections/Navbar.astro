@@ -1,6 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import Button from "@ui/Button.astro";
 import { navigationLinks } from "@utils/navigation";
+import icon from "../../assets/icon.png";
 
 const currentPath = Astro.url.pathname;
 
@@ -16,11 +18,11 @@ const primaryCTA = { text: "Download Beta", href: "/releases/SampleStack-1.0.1.d
   >
     <div class="flex items-center justify-between gap-x-1">
       <a
-        class="dm-sans flex-none text-2xl font-light text-slate-400 focus:opacity-80 focus:outline-hidden"
+        class="dm-sans flex-none flex items-center gap-2 text-2xl font-light text-slate-400 focus:opacity-80 focus:outline-hidden"
         href="/"
         aria-label="SampleStack Logo"
         translate="no"
-        ><span class="font-bold text-slate-800">SampleStack</span></a
+        ><Image src={icon} alt="" width={28} height={28} class="rounded-md" /><span class="font-bold text-slate-800">SampleStack</span></a
       >
 
       <button
