@@ -15,7 +15,6 @@ interface Props {
 
 // Extract `seo` and `schema` from properties or define defaults
 const { seo, schema } = Astro.props;
-const socialImage = `${Astro.site}social.png`; // Path to the default social sharing image
 
 // Define default JSON-LD Schema.org data if no schema is passed
 const defaultSchema: WithContext<Thing> = {
@@ -47,25 +46,24 @@ const defaultSchema: WithContext<Thing> = {
         "Discover, organize, and create with thousands of high-quality audio samples. Browse loops, one-shots, and sound effects for your music production."}
       openGraph={{
         basic: {
-          title: "SampleStack - Your Ultimate Audio Sample Library",
+          title: "SampleStack - Sample Management for Hardware Samplers",
           type: "website",
-          image: socialImage,
+          image: "",
         },
         optional: {
           description:
-            "Discover, organize, and create with thousands of high-quality audio samples. Build your perfect sound palette for music production.",
+            "The native macOS sample manager for Eurorack and hardware samplers. Organize, validate, and convert your sample library.",
         },
       }}
       twitter={{
-        card: "summary_large_image",
-        title: "SampleStack - Your Ultimate Audio Sample Library",
+        card: "summary",
+        title: "SampleStack - Sample Management for Hardware Samplers",
         description:
-          "Discover and organize high-quality audio samples for your music production. Loops, one-shots, and sound effects.",
-        image: socialImage,
-        imageAlt: "SampleStack Logo.",
+          "The native macOS sample manager for Eurorack and hardware samplers.",
       }}
       extend={{
         link: [
+          { rel: "icon", href: "/favicon.ico", sizes: "48x48" },
           { rel: "icon", href: "/favicon.png", type: "image/png" },
           { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
           { rel: "manifest", href: "/manifest.webmanifest" },
